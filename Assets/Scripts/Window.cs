@@ -47,8 +47,8 @@ namespace Rpopic.Window
                 var fill = Mathf.MoveTowards(_canvasGroup.alpha, 1, speed * Time.deltaTime);
                 _canvasGroup.alpha = fill;
                 yield return new WaitForFixedUpdate();
-                onComplete?.Invoke();
             }
+            onComplete?.Invoke();
         }
         public void Toggle(bool open)
         {

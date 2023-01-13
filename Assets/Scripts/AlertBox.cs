@@ -15,7 +15,8 @@ namespace Rpopic.Window
         private static Action<bool> _onAnswer = delegate { };
         protected override void Awake()
         {
-            Instance = this;
+            if (Instance is null) Instance = this;
+            else Destroy(gameObject);
             _cancelButton?.onClick.AddListener(() =>
             {
                 Close();
