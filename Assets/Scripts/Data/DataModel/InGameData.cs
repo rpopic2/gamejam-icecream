@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using System.Linq;
 
 // Data : 엑셀에서 받아온 데이터
 // EntityDict : 가공하지 않은 데이터
@@ -10,13 +9,23 @@ using System.Linq;
 public class InGameData : DataBase 
 {
     [SerializeField] private CustomerData CustomerData;
+    [SerializeField] private ScenarioData ScenarioData;
+    [SerializeField] private DayStageData DayStageData;
+    [SerializeField] private IceCreamData IceCreamData;
+
     // Key : Customer UniqueId
     private Dictionary<long, CustomerEntity> CustomerEntityDict = new Dictionary<long, CustomerEntity>();
-    public Dictionary<long, Customer> CustomerDataDict = new Dictionary<long, Customer>();
 
-    [SerializeField] private ScenarioData ScenarioData;
-    // Key : CustomerId
+    // Key : Scenario GroupId
     private Dictionary<long, List<ScenarioEntity>> ScenarioEntityDict = new Dictionary<long, List<ScenarioEntity>>();
+
+    // Key : IceCream UniqueId
+    private Dictionary<long, IceCreamEntity> IceCreamEntityDict = new Dictionary<long, IceCreamEntity>();
+
+
+    public Dictionary<long, Customer> CustomerDataDict = new Dictionary<long, Customer>();
+    public Dictionary<long, IceCream> IceCreamDataDict = new Dictionary<long, IceCream>();
+
 
 
     public override void LowDataLoad()
@@ -39,13 +48,34 @@ public class InGameData : DataBase
 
         foreach (var data in ScenarioData.ScenarioDatas)
         {
-            if (!ScenarioEntityDict.ContainsKey(data.CustomerId))
+            if (!ScenarioEntityDict.ContainsKey(data.GroupId))
             {
-                ScenarioEntityDict.Add(data.CustomerId, new List<ScenarioEntity>() { data });
+                ScenarioEntityDict.Add(data.GroupId, new List<ScenarioEntity>() { data });
             }
             else
             {
-                ScenarioEntityDict[data.CustomerId].Add(data);
+                ScenarioEntityDict[data.GroupId].Add(data);
+            }
+        }
+
+        IceCreamDataDict.Clear();
+
+        foreach (var data in IceCreamData.IceCreamDatas)
+        {
+            if (!IceCreamDataDict.ContainsKey(data.UniqueId))
+            {
+                IceCreamDataDict.Add(data.UniqueId,
+                    new IceCream(
+                        data.UniqueId,
+                        data.Name,
+                        data.Price,
+                        data.ConeType,
+                        data.FlavorType1, data.FlavorType2, data.FlavorType3,
+                        data.ToppingType1, data.ToppingType2, data.ToppingType3));
+            }
+            else
+            {
+                Console.WriteLine($"IceCreamDataDict Duplicate {data.UniqueId}");
             }
         }
     }
@@ -67,6 +97,7 @@ public class InGameData : DataBase
                     new Customer(
                         customerEntity.Value.UniqueId, 
                         customerEntity.Value.Name,
+                        customerEntity.Value.IceCreamId,
                         scenarioList));
             }
             else

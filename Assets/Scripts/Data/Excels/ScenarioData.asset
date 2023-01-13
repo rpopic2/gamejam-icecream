@@ -13,48 +13,41 @@ MonoBehaviour:
   m_Name: ScenarioData
   m_EditorClassIdentifier: 
   ScenarioDatas:
-  - CustomerId: 10000
-    GroupId: 100
+  - GroupId: 100
     Order: 1
     NeedScore: 0
     CommunicationType: 1
     ScenarioScript: "\uC544\uC774\uACE0, \uC544\uC8FC \uB0A0\uC528\uAC00 \uB108\uBB34
       \uB354\uC6CC\uC694 \uADF8\uCD78"
-  - CustomerId: 10000
-    GroupId: 100
+  - GroupId: 100
     Order: 2
     NeedScore: 0
     CommunicationType: 1
     ScenarioScript: "\uB354\uC704\uB97C \uBA39\uC740\uAC70 \uAC19\uC740\uB370, \uC544\uC774\uC2A4\uD06C\uB9BC
       \uD558\uB098 \uC8FC\uC1FC"
-  - CustomerId: 10000
-    GroupId: 100
+  - GroupId: 100
     Order: 3
     NeedScore: 0
     CommunicationType: 1
     ScenarioScript: "\uC904\uAC70\uC694 \uB9D0\uAC70\uC694. \uC544\uBB34\uAC70\uB098
       \uD558\uB098\uB9CC \uC918\uBD10\uC694"
-  - CustomerId: 10000
-    GroupId: 200
+  - GroupId: 200
     Order: 1
     NeedScore: 80
     CommunicationType: 2
     ScenarioScript: "\uC624\uBA54... \uB108\uBB34 \uB2EC\uB2E4"
-  - CustomerId: 10000
-    GroupId: 200
+  - GroupId: 200
     Order: 2
     NeedScore: 80
     CommunicationType: 2
     ScenarioScript: "\uAC10\uC0AC\uD569\uB2C8\uB2E4!"
-  - CustomerId: 10000
-    GroupId: 200
+  - GroupId: 200
     Order: 1
     NeedScore: 40
     CommunicationType: 2
     ScenarioScript: "\uC774\uAC70 \uC544\uB2CC\uB370... \uB108\uBB34 \uC801\uC5B4
       \uC801\uC5B4!"
-  - CustomerId: 10000
-    GroupId: 200
+  - GroupId: 200
     Order: 2
     NeedScore: 40
     CommunicationType: 2

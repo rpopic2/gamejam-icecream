@@ -3,8 +3,6 @@
 [Serializable]
 public class ScenarioEntity
 {
-    // 해당 시나리오 주체
-    public long CustomerId;
     // 시나리오 묶음
     public long GroupId;
     // 대사 순번
@@ -22,7 +20,7 @@ public class Scenario
     public long GroupId { get; private set; }
     public long Order { get; private set; }
     public long NeedScore { get; private set; }
-    public CommunicationType CommunicationType { get; set; }
+    public CommunicationType CommunicationType { get; private set; }
     public string Script { get; private set; }
 
     public Scenario(long groupId, long order, long needScore, CommunicationType communicationType, string script)

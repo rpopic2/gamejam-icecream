@@ -5,9 +5,22 @@ public enum CommunicationType
     ExitShop = 2,
 }
 
+public enum ConeType
+{
+    Cone,
+    Cup,
+    Bar,
+}
+
 public enum FlavorType
 {
-    None = 0,
-    Vanilla = 1,
-    Strawberry = 2,
+    None,
+    Vanilla,
+    Strawberry,
+    Chocolate,
+}
+
+public enum ToppingType
+{
+    None,
 }
