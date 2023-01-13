@@ -16,7 +16,7 @@ public class Night : MonoBehaviour
         AlertBox.Instance.Alert("Result of the day: ", OnAnswer);
         void OnAnswer(bool _)
         {
-            SceneLoader.Load(Scene.Day);
+            SceneLoader.Load(SceneName.Game);
         }
     }
 }

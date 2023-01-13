@@ -1,13 +1,17 @@
 using UnityEngine.SceneManagement;
 
-public enum Scene
+public enum SceneName
 {
-    Day, Night
+    DontDestroy, Game, Night
 }
 public static class SceneLoader
 {
-    public static void Load(Scene scene)
+    public static void Load(SceneName scene)
     {
         SceneManager.LoadScene(scene.ToString());
+    }
+    public static void LoadAdditive(SceneName scene)
+    {
+        SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Additive);
     }
 }

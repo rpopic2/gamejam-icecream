@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
     [SerializeField] private float _time = 5f;
     private Image _image;
     private float _speed;
 #nullable enable
+    private Coroutine? _coroutine = null;
     public Action? OnTimerEnd;
     private void Awake()
     {
+        Instance = this;
         _image = GetComponentInChildren<Image>();
-        _image.fillAmount = 0;
+        ResetTimer();
     }
     public void SetTimer(float time)
     {
@@ -22,10 +25,22 @@ public class Timer : MonoBehaviour
     }
     public void StartTimer()
     {
-        StartCoroutine(FillAmount());
+        ResetTimer();
+        _coroutine = StartCoroutine(FillAmount());
+    }
+    public void ResetTimer()
+    {
+        _image.fillAmount = 0;
+        if (_coroutine is not null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
     }
     private IEnumerator FillAmount()
     {
+        _image.fillAmount = 0;
+        yield return new WaitForEndOfFrame();
         while (_image.fillAmount != 1)
         {
             var fill = Mathf.MoveTowards(_image.fillAmount, 1, _speed * Time.deltaTime);

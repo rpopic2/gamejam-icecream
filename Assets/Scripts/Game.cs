@@ -3,13 +3,15 @@ using Rpopic.Window;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private Timer _timer;
     [SerializeField] private DayCounter _dayCounter;
     private void Awake()
     {
+        if (!DontDestroyObject.IsLoaded) SceneLoader.LoadAdditive(SceneName.DontDestroy);
     }
     private void Start()
     {
+        DayCounter.Instance.IncrementDay();
+        var _timer = Timer.Instance;
         _timer.OnTimerEnd = () => NextDay();
         _timer.SetTimer(2f);
         _timer.StartTimer();
@@ -19,7 +21,7 @@ public class Game : MonoBehaviour
     {
         AlertBox.Instance.Alert("End day", OnAnswer);
         void OnAnswer(bool result) {
-            if (result) SceneLoader.Load(Scene.Night);
+            if (result) SceneLoader.Load(SceneName.Night);
         }
     }
 }
