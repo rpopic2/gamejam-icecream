@@ -65,3 +65,10 @@ public enum ItemType
     Flavor,
     Topping
 }
+
+public enum GameOverType
+{ 
+    NoMoney,
+    NoHonor,
+    Success
+}
