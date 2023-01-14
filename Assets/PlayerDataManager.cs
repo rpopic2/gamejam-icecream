@@ -16,9 +16,9 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     public int PlayerMoney { get; set; } = 10000;
     public int PlayerHonor { get; set; } = 0;
 
-    public List<ConeInventory> ConeInvenList;
-    public List<FlavorInventory> FlavorInvenList;
-    public List<ToppingInventory> ToppingInvenList;
+    public List<ConeInventory> ConeInvenList = new List<ConeInventory>();
+    public List<FlavorInventory> FlavorInvenList = new List<FlavorInventory>();
+    public List<ToppingInventory> ToppingInvenList = new List<ToppingInventory>();
 
     private void Start()
     {
@@ -62,6 +62,21 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
         }
     }
 
+    public int GetItemNumberFromType(ConeType cone)
+    {
+        return ConeInvenList.Find(x => x.ConeType == cone).GetCount();
+    }
+
+    public int GetItemNumberFromType(FlavorType flavor)
+    {
+        return FlavorInvenList.Find(x => x.FlavorType == flavor).GetCount();
+    }
+
+    public int GetItemNumberFromType(ToppingType topping)
+    {
+        return ToppingInvenList.Find(x => x.ToppingType == topping).GetCount();
+    }
+
     public void UseItemFromType(ConeType cone)
     {
         if(ConeInvenList.Find(x => x.ConeType == cone).IsMoreThanOne())
@@ -84,6 +99,11 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
             ToppingInvenList.Find(x => x.ToppingType == topping).UseItem();
         
         Debug.Log("Item is empty");
+    }
+
+    public void UpdateMoneyText()
+    {
+        m_CoinText.text = PlayerMoney.ToString();
     }
 }
 
@@ -144,6 +164,7 @@ public class ConeInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetConeEntityFromConeType(ConeType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }
 
@@ -164,6 +185,7 @@ public class FlavorInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetFlavorEntityFromFlavorType(FlavorType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }
 
@@ -183,5 +205,6 @@ public class ToppingInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetToppingEntityFromToppingType(ToppingType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }

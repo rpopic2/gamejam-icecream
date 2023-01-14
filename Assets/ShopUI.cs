@@ -14,9 +14,9 @@ public class ShopUI : MonoBehaviour
     
     private ShopSlot m_SelectedSlot;
 
-    private List<ConeType> m_RandomConeTypeList;
-    private List<FlavorType> m_RandomFlavorTypeList;
-    private List<ToppingType> m_RandomToppingTypeList;
+    private List<ConeType> m_RandomConeTypeList = new List<ConeType>();
+    private List<FlavorType> m_RandomFlavorTypeList = new List<FlavorType>();
+    private List<ToppingType> m_RandomToppingTypeList = new List<ToppingType>();
     
     //temp
     private int m_Stage = 1;
@@ -54,12 +54,24 @@ public class ShopUI : MonoBehaviour
             m_ShopSlotList[5].SetShopSlot(m_RandomFlavorTypeList[idx]);
             
             // 7 ~ 8번 : 토핑 2가지
-            idx = Random.Range(0, m_RandomToppingTypeList.Count);
-            m_ShopSlotList[6].SetShopSlot(m_RandomToppingTypeList[idx]);
-            m_RandomToppingTypeList.RemoveAt(idx);
+            // 토핑리스트 비어있으면 빈 슬롯으로
+
+            if (m_RandomToppingTypeList.Count == 0)
+            {
+                m_ShopSlotList[6].SetEmptySlot();
+                m_ShopSlotList[7].SetEmptySlot();
+            }
+            else
+            {
+                idx = Random.Range(0, m_RandomToppingTypeList.Count);
+                m_ShopSlotList[6].SetShopSlot(m_RandomToppingTypeList[idx]);
+                m_RandomToppingTypeList.RemoveAt(idx);
             
-            idx = Random.Range(0, m_RandomToppingTypeList.Count);
-            m_ShopSlotList[7].SetShopSlot(m_RandomToppingTypeList[idx]);
+                idx = Random.Range(0, m_RandomToppingTypeList.Count);
+                m_ShopSlotList[7].SetShopSlot(m_RandomToppingTypeList[idx]);
+            }
+            
+            
 
             foreach (var var in m_ShopSlotList)
             {
@@ -70,9 +82,10 @@ public class ShopUI : MonoBehaviour
         }
     }
 
+
     public void SetSlotCanBuy(ShopSlot slot)
     {
-        if (slot.PurchasePrice > PlayerDataManager.Instance.PlayerMoney)
+        if (slot.PurchasePrice > PlayerDataManager.Instance.PlayerMoney || slot.IsEmptySlot) // or already max
         {
             slot.GetComponent<Button>().interactable = false;
         }
@@ -120,6 +133,7 @@ public class ShopUI : MonoBehaviour
 
         //set slot sold out
         m_SelectedSlot.GetComponent<Button>().interactable = false;
+        m_SelectedSlot.IsSoldOut = true;
         
         m_ShopPopup.gameObject.SetActive(false);
     }

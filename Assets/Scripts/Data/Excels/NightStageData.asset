@@ -16,35 +16,35 @@ MonoBehaviour:
   - StageId: 1
     Day: 1
     ConePool: BasicCone;WafleCone
-    FlavorPool: Vanilla;Strawberry;Chocolate
+    FlavorPool: Grape;MintChoco;RainbowSherbet
     ToppingPool: 
     MoveCost: 1000
     Honor: 0
   - StageId: 1
     Day: 2
     ConePool: BasicCone;WafleCone;Crepe
-    FlavorPool: Vanilla;Strawberry;Chocolate;Grape
+    FlavorPool: Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles
     MoveCost: 1000
     Honor: 0
   - StageId: 1
     Day: 3
     ConePool: BasicCone;WafleCone;Crepe
-    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco
+    FlavorPool: Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick
     MoveCost: 1000
     Honor: 0
   - StageId: 1
     Day: 4
     ConePool: BasicCone;WafleCone;Crepe
-    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
+    FlavorPool: Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
     MoveCost: 1000
     Honor: 0
   - StageId: 1
     Day: 5
     ConePool: BasicCone;WafleCone;Crepe
-    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
+    FlavorPool: Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
     MoveCost: 0
     Honor: 100

@@ -11,11 +11,13 @@ public class ShopSlot : MonoBehaviour
     [SerializeField] private TMP_Text m_NameText;
     [SerializeField] private Image m_CoinIconImg;
     [SerializeField] private TMP_Text m_PriceText;
+    [SerializeField] private GameObject m_PriceArea;
 
     private ItemType m_ItemType;
     public ItemType ItemType => m_ItemType;
 
-    private bool m_isSoldOut = false;
+    public bool IsSoldOut { get; set; } = false;
+    public bool IsEmptySlot { get; set; } = false;
     
     private string m_NameString;
     private int m_PurchasePrice;
@@ -35,6 +37,8 @@ public class ShopSlot : MonoBehaviour
 
     public void SetShopSlot(ConeType cone)
     {
+        IsEmptySlot = false;
+        
         m_ItemType = ItemType.Cone;
         m_ConeEntity = DataManager.Instance.InGameData.GetConeEntityFromConeType(cone);
 
@@ -47,6 +51,8 @@ public class ShopSlot : MonoBehaviour
     
     public void SetShopSlot(FlavorType flavor)
     {
+        IsEmptySlot = false;
+        
         m_ItemType = ItemType.Flavor;
         m_FlavorEntity = DataManager.Instance.InGameData.GetFlavorEntityFromFlavorType(flavor);
 
@@ -59,6 +65,8 @@ public class ShopSlot : MonoBehaviour
 
     public void SetShopSlot(ToppingType topping)
     {
+        IsEmptySlot = false;
+        
         m_ItemType = ItemType.Topping;
         m_toppingEntity = DataManager.Instance.InGameData.GetToppingEntityFromToppingType(topping);
         
@@ -69,13 +77,26 @@ public class ShopSlot : MonoBehaviour
         SetSlotTextAndIcon();
     }
 
+    public void SetEmptySlot()
+    {
+        m_NameText.gameObject.SetActive(false);
+        m_PriceArea.gameObject.SetActive(false);
+        m_IconImg.gameObject.SetActive(false);
+
+        GetComponent<Button>().interactable = false;
+        IsEmptySlot = true;
+    }
+
     public void SetSlotTextAndIcon()
     {
+        m_NameText.gameObject.SetActive(true);
+        m_PriceArea.gameObject.SetActive(true);
+        
         m_NameText.text = m_NameString;
         m_PriceText.text = m_PurchasePrice.ToString();
         
         //TODO
         // Change Icon Img
-        
+        m_IconImg.gameObject.SetActive(true);
     }
 }
