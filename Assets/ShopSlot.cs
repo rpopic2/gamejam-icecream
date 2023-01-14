@@ -9,9 +9,9 @@ public class ShopSlot : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Image m_IconImg;
     [SerializeField] private TMP_Text m_NameText;
-    [SerializeField] private Image m_CoinIconImg;
     [SerializeField] private TMP_Text m_PriceText;
     [SerializeField] private GameObject m_PriceArea;
+    public GameObject SoldOutObj;
 
     private ItemType m_ItemType;
     public ItemType ItemType => m_ItemType;
@@ -35,7 +35,7 @@ public class ShopSlot : MonoBehaviour
     public ToppingEntity ToppingEntity => m_toppingEntity;
     
 
-    public void SetShopSlot(ConeType cone)
+    public void SetShopSlot(ConeType cone, Sprite sprite)
     {
         IsEmptySlot = false;
         
@@ -46,10 +46,10 @@ public class ShopSlot : MonoBehaviour
         m_PurchasePrice = (int)m_ConeEntity.PurchasePrice;
         m_IconString = m_ConeEntity.Icon;
 
-        SetSlotTextAndIcon();
+        SetSlotTextAndIcon(sprite);
     }
     
-    public void SetShopSlot(FlavorType flavor)
+    public void SetShopSlot(FlavorType flavor, Sprite sprite)
     {
         IsEmptySlot = false;
         
@@ -60,10 +60,10 @@ public class ShopSlot : MonoBehaviour
         m_PurchasePrice = (int)m_FlavorEntity.PurchasePrice;
         m_IconString = m_FlavorEntity.Icon;
 
-        SetSlotTextAndIcon();
+        SetSlotTextAndIcon(sprite);
     }
 
-    public void SetShopSlot(ToppingType topping)
+    public void SetShopSlot(ToppingType topping, Sprite sprite)
     {
         IsEmptySlot = false;
         
@@ -74,7 +74,7 @@ public class ShopSlot : MonoBehaviour
         m_PurchasePrice = (int)m_toppingEntity.PurchasePrice;
         m_IconString = m_toppingEntity.Icon;
 
-        SetSlotTextAndIcon();
+        SetSlotTextAndIcon(sprite);
     }
 
     public void SetEmptySlot()
@@ -87,7 +87,7 @@ public class ShopSlot : MonoBehaviour
         IsEmptySlot = true;
     }
 
-    public void SetSlotTextAndIcon()
+    public void SetSlotTextAndIcon(Sprite sprite)
     {
         m_NameText.gameObject.SetActive(true);
         m_PriceArea.gameObject.SetActive(true);
@@ -98,5 +98,6 @@ public class ShopSlot : MonoBehaviour
         //TODO
         // Change Icon Img
         m_IconImg.gameObject.SetActive(true);
+        m_IconImg.sprite = sprite;
     }
 }
