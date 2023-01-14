@@ -15,5 +15,15 @@ public class DataManager : MonoSingleton<DataManager>
 
         InGameData.ProcessedDataLoad();
         StoryFlowData.ProcessedDataLoad();
+
+
+        var player = new Player() 
+        {
+             Stage = 1,
+             Day = 1,
+        };
+
+        var temp = player.GetAvailableConeTypes;
+
     }
 }

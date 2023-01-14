@@ -1,6 +1,6 @@
 ﻿
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 public class Player
 {
@@ -13,15 +13,15 @@ public class Player
     public IceCream IceCream { get; set; }
     // 지금 받은 손님
     public Customer Customer { get; set; }
+    // 현재 주문 요청서
+    public Order Order { get; set; }
 
+    public DayStage GetDayStage =>
+        DataManager.Instance.StoryFlowData.GetDayStage(Stage, Day);
 
-    //public Scenario GetSceanrio(long order) => 
-    //    Customer.ScenarioList.FirstOrDefault(e => e.Order == order);
+    public NightStage GetNightStage =>
+        DataManager.Instance.StoryFlowData.GetNightStage(Stage, Day);
 
-    //public DayStage GetDayStage =>
-    //    DataManager.Instance.StoryFlowData.GetDayStage(Stage, Day);
-
-    //public IceCream GetAnswerIceCream =>
-    //    DataManager.Instance.InGameData.GetIceCream(Customer.IceCreamId);
-
+    public List<ConeType> GetAvailableConeTypes =>
+        DataManager.Instance.StoryFlowData.GetAvailableConeTypes(Stage, Day);
 }

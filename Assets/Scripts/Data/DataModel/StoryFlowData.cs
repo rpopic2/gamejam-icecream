@@ -94,4 +94,11 @@ public class StoryFlowData : DataBase
 
         return nightStages?.FirstOrDefault(e => e.Day == day);
     }
+
+    public List<ConeType> GetAvailableConeTypes(long stageId, long day)
+    {
+        DayStageDataDict.TryGetValue(stageId, out var dayStages);
+
+        return dayStages?.FirstOrDefault(e => e.Day == day).ConeTypes;
+    }
 }
