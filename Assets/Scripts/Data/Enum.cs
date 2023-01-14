@@ -58,3 +58,10 @@ public enum ActionType
     Good,
     Bad,
 }
+
+public enum ItemType
+{
+    Cone,
+    Flavor,
+    Topping
+}

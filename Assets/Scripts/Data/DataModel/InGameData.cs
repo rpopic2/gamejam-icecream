@@ -149,4 +149,25 @@ public class InGameData : DataBase
 
         Debug.Log("InGameData Load Done");
     }
+
+    public ConeEntity GetConeEntityFromConeType(ConeType cone)
+    {
+        ConeEntity coneEntity = ConeEntityList.Find(x => x.ConeType == cone);
+
+        return coneEntity;
+    }
+
+    public FlavorEntity GetFlavorEntityFromFlavorType(FlavorType flavor)
+    {
+        FlavorEntity flavorEntity = FlavorEntityList.Find(x => x.FlavorType == flavor);
+
+        return flavorEntity;
+    }
+
+    public ToppingEntity GetToppingEntityFromToppingType(ToppingType topping)
+    {
+        ToppingEntity toppingEntity = ToppingEntityList.Find(x => x.ToppingType == topping);
+
+        return toppingEntity;
+    }
 }

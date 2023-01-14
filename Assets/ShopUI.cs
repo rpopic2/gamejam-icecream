@@ -22,6 +22,7 @@ public class ShopUI : MonoBehaviour
 
     public void SetShopSlotList()
     {
+        /*
         foreach (var slot in m_ShopSlotList)
         {
             //temp
@@ -29,6 +30,7 @@ public class ShopUI : MonoBehaviour
 
             slot.gameObject.GetComponent<Button>().onClick.AddListener(() => SlotClickAction(slot));
         }
+        */
     }
 
     public void SlotClickAction(ShopSlot slot)

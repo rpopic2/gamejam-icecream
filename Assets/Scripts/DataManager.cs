@@ -8,6 +8,9 @@ public class DataManager : MonoSingleton<DataManager>
     public InGameData InGameData => _inGameData;
     public StoryFlowData StoryFlowData => _storyFlowData;
 
+    private const int m_MaxNum = 10;
+    public int MaxNum => m_MaxNum;
+    
     private void Start()
     {
         InGameData.LowDataLoad();
