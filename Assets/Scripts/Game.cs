@@ -5,14 +5,19 @@ using System;
 
 public class Game : MonoBehaviour
 {
-    private bool _isGameRunning = false;
     [SerializeField] private GameObject _canvas;
+    [SerializeField] private float _dayTimeLimit;
+    private static Game s_instance;
+    private static Window s_resultWindow;
 #nullable enable
-    private static GameObjectDict<Window>? _windows = null;
+    private static GameObjectDict<Window>? s_windows;
+    private bool _isGameRunning = false;
     private void Awake()
     {
         if (_isGameRunning) return;
-        if (_windows is null) _windows = new(_canvas);
+        s_instance = this;
+        if (s_windows is null) s_windows = new(_canvas);
+        s_resultWindow = s_windows?["win_result"] ?? throw new Exception("cannot find result window");
         if (!DontDestroyObject.IsLoaded) SceneLoader.LoadAdditive(SceneName.DontDestroy);
     }
     private void Start()
@@ -21,7 +26,7 @@ public class Game : MonoBehaviour
         _isGameRunning = true;
         Main();
     }
-    private async static void Main()
+    private static async void Main()
     {
         while (true) 
         {
@@ -30,20 +35,18 @@ public class Game : MonoBehaviour
             //TODO await ReadyUp();
         }
     }
-    //TODO make async await
-    private async static Task Day()
+    private static async Task Day()
     {
         DayCounter.Instance.IncrementDay();
         var _timer = Timer.Instance;
-        _timer.SetTimer(2f);
-        await _timer.StartTimer();
+        _timer.SetTimer(s_instance._dayTimeLimit);
+        await _timer.StartTimerAsync();
     }
-    private async static Task ShowResult()
+    private static async Task ShowResult()
     {
         await AlertBox.Instance.AlertAsync("End day");
-        var resultWindow = _windows?["win_result"] ?? throw new Exception("cannot find result window");
-        resultWindow.Open();
-        await resultWindow.AwaitClose();
+        s_resultWindow.Open();
+        await s_resultWindow.WaitCloseAsync();
     }
 }
 

@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     {
         _time = time;
     }
-    public async Task StartTimer()
+    public async Task StartTimerAsync()
     {
         ResetTimer();
         _coroutine = StartCoroutine(FillAmount());
@@ -40,15 +40,10 @@ public class Timer : MonoBehaviour
             _coroutine = null;
         }
     }
-    private void Foo()
-    {
-
-    }
     private IEnumerator FillAmount()
     {
         var _speed = 1 / _time;
         _image.fillAmount = 0;
-        yield return new WaitForEndOfFrame();
         while (_image.fillAmount != 1)
         {
             var fill = Mathf.MoveTowards(_image.fillAmount, 1, _speed * Time.deltaTime);
