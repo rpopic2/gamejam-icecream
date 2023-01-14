@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ConeSelection : MonoBehaviour
 {
     private Button _buttons;
-    private int _index;
+    protected int _index;
     private void Awake()
     {
         _index = transform.GetSiblingIndex();
@@ -13,6 +13,6 @@ public class ConeSelection : MonoBehaviour
         _buttons.onClick.AddListener(SelectCone);
 
     }
-    private void SelectCone()
+    protected virtual void SelectCone()
         => PreviewIcecream.Instance.SetCone(_index);
 }
