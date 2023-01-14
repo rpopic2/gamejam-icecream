@@ -11,12 +11,16 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void OnPointerClick(PointerEventData eventData) { }
     public void OnPointerDown(PointerEventData eventData)
     {
+#if UNITY_EDITOR
+        Debug.Log($"select : {_index}");
+#endif
+
         SkillCheck.Instance.StartSkillCheck();
         SkillCheck.Instance.SnapPosition(transform);
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         SkillCheck.Instance.StopSkillCheck();
-        IcecreamScoop.Instance.Scoop();
+        IcecreamScoop.Instance.Scoop(_index);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,8 +12,8 @@ namespace Icecream
         //TODO this is a stub impl
         public
             int cone,
-            flavor,
-            topping;
+            flavor;
+        public List<int> topping => new List<int>();
     }
 }
 
@@ -57,22 +58,24 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void SetCone(int index)
     {
         //TODO implement this thang
-        _icecream.cone = index;
+        _icecream.cone = index + 1;
         _previewImage.gameObject.SetActive(true);
     }
     public void SetFlavor(int index)
     {
         _previewImage.color = Color.red;
-        _icecream.flavor = index;
+        _icecream.flavor = index + 1;
+
+        Debug.Log(_icecream.flavor);
     }
     public void SetTopping(int index)
     {
         //TODO implement this
-        _icecream.topping = index;
+        _icecream.topping.Add(index + 1);
     }
     public void Submit()
     {
-        var (score, talk) = IcecreamJudge.Evaluate(_icecream);
+        var (score, talk) = IcecreamJudge.Evaluate(_icecream, Player.Order);
         print($"you get {score} score");
         Dialog.Instance.Print(talk);
         MoneyBalance.Instance.Balance += score;
@@ -82,7 +85,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerClick(PointerEventData eventData)
     {
         IcecreamScoop.Instance.Clear();
-        SetFlavor(0);
+        SetFlavor(IcecreamScoop.Instance.flavorIdx);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
