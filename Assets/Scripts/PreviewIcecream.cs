@@ -19,6 +19,7 @@ namespace Icecream
 
 public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private List<Sprite> _coneSprites;
     public static PreviewIcecream Instance;
     [SerializeField] Image _previewImage;
     [SerializeField] Button _submitButton;
@@ -66,12 +67,11 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         //TODO implement this thang
         _icecream.cone = index + 1;
         _previewImage.gameObject.SetActive(true);
+        _previewImage.sprite = _coneSprites[index];
     }
     public void SetFlavor(int index)
     {
-        _previewImage.color = Color.red;
         _icecream.flavor = index + 1;
-
         Debug.Log(_icecream.flavor);
     }
     public void SetTopping(int index)
