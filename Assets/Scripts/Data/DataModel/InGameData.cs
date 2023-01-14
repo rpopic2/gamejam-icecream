@@ -22,6 +22,7 @@ public class InGameData : DataBase
     // Row Data
     private Dictionary<BodyType, CustomerParse> CustomerEntityDict = new Dictionary<BodyType, CustomerParse>();
     private List<CustomerTypeEntity> CustomerTypeEntityList = new List<CustomerTypeEntity>();
+    public IEnumerable<CustomerTypeEntity> customerTypeEntityList => CustomerTypeEntityList;
 
     private List<ConeEntity> ConeEntityList = new List<ConeEntity>();
     private List<FlavorEntity> FlavorEntityList = new List<FlavorEntity>();
@@ -38,25 +39,25 @@ public class InGameData : DataBase
 
     public override void LowDataLoad()
     {
+        CustomerTypeEntityList.Clear();
+
+        foreach (var data in CustomerTypeData.CustomerTypeDatas)
+        {
+            CustomerTypeEntityList.Add(data.Clone());
+        }
+
         CustomerEntityDict.Clear();
 
         foreach (var data in CustomerData.CustomerDatas)
         {
             if (!CustomerEntityDict.ContainsKey(data.BodyTpe))
             {
-                CustomerEntityDict.Add(data.BodyTpe, new CustomerParse(data));
+                CustomerEntityDict.Add(data.BodyTpe, new CustomerParse(data, CustomerTypeEntityList));
             }
             else
             {
                 Debug.Log($"CustomerEntityDict Duplicate {data.BodyTpe}");
             }
-        }
-
-        CustomerTypeEntityList.Clear();
-
-        foreach (var data in CustomerTypeData.CustomerTypeDatas)
-        {
-            CustomerTypeEntityList.Add(data.Clone());
         }
 
         ConeEntityList.Clear();
@@ -109,10 +110,10 @@ public class InGameData : DataBase
                     customerParse.ClothesList.ForEach(clothes => CustomerDataList.Add(new Customer 
                     {
                         BodyType = entity.BodyType,
-                        Skin = skin,
-                        Hair = hair,
-                        Face = face,
-                        Clothes = clothes,
+                        Skin = (skin.Item2, skin.Item1),
+                        Hair = (hair.Item2, hair.Item1),
+                        Face = (face.Item2, face.Item1),
+                        Clothes = (clothes.Item2, clothes.Item1),
                     })))));
                 }
             }
@@ -134,6 +135,12 @@ public class InGameData : DataBase
             ToppingEntityList.ForEach(topping1 =>
             ToppingEntityList.ForEach(topping2 => IceCreamDataList.Add(new IceCream(cone, flavor, new List<ToppingEntity> { topping1, topping2 }))))));
 
+            ConeEntityList.ForEach(cone =>
+            FlavorEntityList.ForEach(flavor =>
+            ToppingEntityList.ForEach(topping1 =>
+            ToppingEntityList.ForEach(topping2 =>
+            ToppingEntityList.ForEach(topping3 => IceCreamDataList.Add(new IceCream(cone, flavor, new List<ToppingEntity> { topping1, topping2, topping3 })))))));
+
             Debug.Log($"Create IceCream Pool : {IceCreamDataList.Count}");
         }
 
@@ -141,7 +148,10 @@ public class InGameData : DataBase
         {
             foreach (var entity in OrderEntityList)
             {
-                OrderDataList.Add(new Order(entity));
+                foreach (var iceCream in IceCreamDataList)
+                {
+                    OrderDataList.Add(new Order(entity, iceCream));
+                }
             }
 
             Debug.Log($"Create Order List : {OrderDataList.Count}");
@@ -169,5 +179,19 @@ public class InGameData : DataBase
         ToppingEntity toppingEntity = ToppingEntityList.Find(x => x.ToppingType == topping);
 
         return toppingEntity;
+    }
+
+    public Customer GetRandomCustomer()
+    {
+        var random = new System.Random((int)DateTime.Now.Ticks);
+
+        return CustomerDataList[random.Next(CustomerDataList.Count)];
+    }
+
+    public Order GetRandomOrder()
+    {
+        var random = new System.Random((int)DateTime.Now.Ticks);
+
+        return OrderDataList[random.Next(OrderDataList.Count)];
     }
 }

@@ -24,4 +24,14 @@ public class Player
 
     public List<ConeType> GetAvailableConeTypes =>
         DataManager.Instance.StoryFlowData.GetAvailableConeTypes(Stage, Day);
+
+    public void SetCustomer()
+    {
+        Customer = DataManager.Instance.InGameData.GetRandomCustomer();
+    }
+
+    public void SetOrder()
+    {
+        Order = DataManager.Instance.InGameData.GetRandomOrder();
+    }
 }

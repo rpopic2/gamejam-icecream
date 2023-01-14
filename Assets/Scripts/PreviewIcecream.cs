@@ -21,6 +21,8 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public static PreviewIcecream Instance;
     [SerializeField] Image _previewImage;
     [SerializeField] Button _submitButton;
+    [SerializeField] private UICustomer UICustomer;
+    public static Player Player = new Player(); // 임시로 바로 할당
     private IcecreamData _icecream;
     public Task<bool> UserSubmit => _userSubmit;
     private TaskCompletionSource<bool> tcs;
@@ -36,8 +38,9 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
             Init();
             tcs = new();
             _userSubmit = tcs.Task;
+            UICustomer.Instance.ReadyToCustomerUI(Player.Customer);
             await CustomerTweener.Instance.CustomerIn();
-            Dialog.Instance.Print("I would like a chocolate icecream with a cherry on the top!");
+            Dialog.Instance.Print(Player.Order.OrderScriptParse());
             await _userSubmit;
             await Dialog.Instance.WaitDialogAsync();
             await CustomerTweener.Instance.CustomerOut();
@@ -48,6 +51,9 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         _icecream = default;
         _previewImage.gameObject.SetActive(false);
         _previewImage.color = Color.white;
+
+        Player.SetCustomer();
+        Player.SetOrder();
     }
     public void SetCone(int index)
     {
