@@ -52,7 +52,7 @@ public class Game : MonoBehaviour
     {
         await AlertBox.Instance.AlertAsync("End day");
         s_resultWindow.Open();
-        await s_resultWindow.WaitCloseAsync();
+        await s_resultWindow.CloseAsync;
     }
 }
 

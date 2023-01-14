@@ -9,12 +9,13 @@ namespace Rpopic.Window
     public class AlertBox : Window
     {
         public static AlertBox Instance;
-        private volatile bool _clicked = false;
         [SerializeField] private Button _cancelButton;
         [SerializeField] private Button _okButton;
         [SerializeField] private Image _titleImage;
         [SerializeField] private TMP_Text _titleText;
         private static Action<bool> _onAnswer = delegate { };
+        private TaskCompletionSource<bool> _tcs;
+        public Task<bool> UserAnswerAsync { get; private set; }
         protected override void Awake()
         {
             if (Instance is null) Instance = this;
@@ -22,24 +23,25 @@ namespace Rpopic.Window
             _cancelButton?.onClick.AddListener(() =>
             {
                 Close();
-                _clicked = true;
+                _tcs.SetResult(false);
                 _onAnswer?.Invoke(false);
             });
             _okButton?.onClick.AddListener(() =>
             {
                 Close();
-                _clicked = true;
+                _tcs.SetResult(true);
+                _onAnswer?.Invoke(false);
                 _onAnswer?.Invoke(true);
             });
             base.Awake();
         }
         public async Task AlertAsync(string text)
         {
+            _tcs = new();
+            UserAnswerAsync = _tcs.Task;
             InternalOpen(text);
             _cancelButton.gameObject.SetActive(false);
-            do {
-                await Task.Delay(100);
-            } while (!_clicked);
+            await UserAnswerAsync;
         }
         public void ImageChoose(Sprite titleSprite, Action<bool> onAnswer)
         {
@@ -58,7 +60,6 @@ namespace Rpopic.Window
         }
         private void InternalOpen(string text)
         {
-            _clicked = false;
             Open();
             _titleImage?.gameObject.SetActive(false);
             _titleText.gameObject.SetActive(true);

@@ -22,11 +22,10 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     [SerializeField] Image _previewImage;
     [SerializeField] Button _submitButton;
     [SerializeField] private UICustomer UICustomer;
-    public static Player Player = new Player(); // �ӽ÷� �ٷ� �Ҵ�
+    public static Player Player = new Player(); // ÀÓ½Ã·Î ¹Ù·Î ÇÒ´ç
     private IcecreamData _icecream;
-    public Task<bool> UserSubmit => _userSubmit;
-    private TaskCompletionSource<bool> tcs;
-    private Task<bool> _userSubmit;
+    private TaskCompletionSource<bool> _tcs;
+    public Task<bool> UserSubmit { get; private set; }
     private void Awake()
     {
         Instance = this;
@@ -36,12 +35,12 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         do {
             Init();
-            tcs = new();
-            _userSubmit = tcs.Task;
+            _tcs = new();
+            UserSubmit = _tcs.Task;
             UICustomer.Instance.ReadyToCustomerUI(Player.Customer);
             await CustomerTweener.Instance.CustomerIn();
             Dialog.Instance.Print(Player.Order.OrderScriptParse());
-            await _userSubmit;
+            await UserSubmit;
             await Dialog.Instance.WaitDialogAsync();
             await CustomerTweener.Instance.CustomerOut();
         } while (Game.IsDay);
@@ -77,7 +76,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         print($"you get {score} score");
         Dialog.Instance.Print(talk);
         MoneyBalance.Instance.Balance += score;
-        tcs.SetResult(true);
+        _tcs.SetResult(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)
