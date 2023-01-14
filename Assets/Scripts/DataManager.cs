@@ -8,6 +8,9 @@ public class DataManager : MonoSingleton<DataManager>
     public InGameData InGameData => _inGameData;
     public StoryFlowData StoryFlowData => _storyFlowData;
 
+    // 리소스 로드 전용
+    public ResourceCustomer ResourceCustomer;
+
     private const int m_MaxNum = 10;
     public int MaxNum => m_MaxNum;
     
@@ -19,14 +22,6 @@ public class DataManager : MonoSingleton<DataManager>
         InGameData.ProcessedDataLoad();
         StoryFlowData.ProcessedDataLoad();
 
-
-        var player = new Player() 
-        {
-             Stage = 1,
-             Day = 1,
-        };
-
-        var temp = player.GetAvailableConeTypes;
-
+        ResourceCustomer.LoadResources();
     }
 }

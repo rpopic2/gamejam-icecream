@@ -15,30 +15,42 @@ public class CustomerEntity
 public class CustomerParse
 {
     public BodyType BodyTpe;
-    public List<BodyBaseType> SkinList = new List<BodyBaseType>();
-    public List<BodyBaseType> HairList = new List<BodyBaseType>();
-    public List<BodyBaseType> FaceList = new List<BodyBaseType>();
-    public List<BodyBaseType> ClothesList = new List<BodyBaseType>();
+    public List<(BodyBaseType, int)> SkinList = new List<(BodyBaseType, int)>();
+    public List<(BodyBaseType, int)> HairList = new List<(BodyBaseType, int)>();
+    public List<(BodyBaseType, int)> FaceList = new List<(BodyBaseType, int)>();
+    public List<(BodyBaseType, int)> ClothesList = new List<(BodyBaseType, int)>();
 
-    public CustomerParse(CustomerEntity data)
+    public CustomerParse(CustomerEntity data, IEnumerable<CustomerTypeEntity> customerTypeEntity)
     {
         BodyTpe = data.BodyTpe;
 
+        void BuildList(string pool, List<(BodyBaseType, int)> list)
+        {
+            var ids = pool.Split(';');
+
+            foreach (var id in ids)
+            {
+                var entity = customerTypeEntity.FirstOrDefault(e => e.ID == int.Parse(id));
+
+                list.Add((entity.BodyBaseType, entity.Index));
+            }
+        }
+
         if (!String.IsNullOrEmpty(data.SkinPool))
         {
-            data.SkinPool.Split(';').ToList().ForEach(e => SkinList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+            BuildList(data.SkinPool, SkinList);
         }
         if (!String.IsNullOrEmpty(data.HairPool))
         {
-            data.HairPool.Split(';').ToList().ForEach(e => HairList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+            BuildList(data.HairPool, HairList);
         }
         if (!String.IsNullOrEmpty(data.FacePool))
         {
-            data.FacePool.Split(';').ToList().ForEach(e => FaceList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+            BuildList(data.FacePool, FaceList);
         }
         if (!String.IsNullOrEmpty(data.ClothesPool))
         {
-            data.ClothesPool.Split(';').ToList().ForEach(e => ClothesList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+            BuildList(data.ClothesPool, ClothesList);
         }
     }
 }
