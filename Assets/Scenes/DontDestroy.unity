@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DontDestroyCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3452734856503532452, guid: a3eda62814cf04b06a71a483e6b8d682, type: 3}
+      propertyPath: _toolbar
+      value: 
+      objectReference: {fileID: 1370525336}
     - target: {fileID: 3452734856503532454, guid: a3eda62814cf04b06a71a483e6b8d682, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -460,6 +464,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6132811915745536663, guid: a3eda62814cf04b06a71a483e6b8d682, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6632970384164338394, guid: a3eda62814cf04b06a71a483e6b8d682, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -491,6 +499,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1370525336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6132811915745536663, guid: a3eda62814cf04b06a71a483e6b8d682, type: 3}
+  m_PrefabInstance: {fileID: 1370525334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1370525337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370525336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ad7b56b60934ac3a4fd741fa6eb3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1583277240

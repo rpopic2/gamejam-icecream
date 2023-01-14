@@ -2497,6 +2497,10 @@ PrefabInstance:
       propertyPath: _toppingPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 2303355168088400195, guid: a277f62941bf04f61b6148f06dc762c7, type: 3}
+    - target: {fileID: 5119167725056499174, guid: 85719eb5743c84283b1f6ea05f8cba93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5392845567875014047, guid: 85719eb5743c84283b1f6ea05f8cba93, type: 3}
       propertyPath: m_IsActive
       value: 0

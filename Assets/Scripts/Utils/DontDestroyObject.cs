@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DontDestroyObject : MonoBehaviour
 {
+    public static GameObject Toolbar;
     public static bool IsLoaded { get; private set; }
     static DontDestroyObject() {
     }

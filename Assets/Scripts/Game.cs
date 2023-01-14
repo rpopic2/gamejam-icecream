@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        MenuBarCtl.Instance.EnableBar();
         if (_isGameRunning) return;
         _isGameRunning = true;
         Main();
