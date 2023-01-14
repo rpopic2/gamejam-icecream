@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8776606462786834516}
+  - {fileID: 9059111598013321954}
   - {fileID: 2819782598050475918}
   - {fileID: 7830211497369533841}
   - {fileID: 641710276779126615}
@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: img_icecream_drum (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
 --- !u!224 &7830211497369533841 stripped
@@ -209,7 +213,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7083261923438044796, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
   m_PrefabInstance: {fileID: 1073742297208773613}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1981592782969353768
+--- !u!1001 &2302644738222175390
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -304,12 +308,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: img_icecream_drum
       objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
---- !u!224 &8776606462786834516 stripped
+--- !u!224 &9059111598013321954 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7083261923438044796, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
-  m_PrefabInstance: {fileID: 1981592782969353768}
+  m_PrefabInstance: {fileID: 2302644738222175390}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5002703575683647986
 PrefabInstance:
@@ -405,6 +413,10 @@ PrefabInstance:
     - target: {fileID: 7083261923438044797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
       propertyPath: m_Name
       value: img_icecream_drum (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
@@ -508,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: img_icecream_drum (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
 --- !u!224 &4052834908236460211 stripped
@@ -610,6 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: img_icecream_drum (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
 --- !u!224 &390029489585775142 stripped
@@ -711,6 +731,10 @@ PrefabInstance:
     - target: {fileID: 7083261923438044797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
       propertyPath: m_Name
       value: img_icecream_drum (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212901566981466797, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.830017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834de3025aafa41aeb6d9b305dd1f14b, type: 3}
