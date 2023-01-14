@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IceCreamData
   m_EditorClassIdentifier: 
   IceCreamDatas:
-  - UniqueId: 10000
-    Name: "\uD0A4\uAC00 \uD070 \uC544\uC800\uC528"
+  - UniqueId: 0
+    Name: Chocolate
     Price: 0
     ConeType: 0
     FlavorType1: 0
@@ -23,8 +23,8 @@ MonoBehaviour:
     ToppingType1: 0
     ToppingType2: 0
     ToppingType3: 0
-  - UniqueId: 10001
-    Name: "\uB540\uC744 \uBED8\uBED8 \uD559\uC0DD"
+  - UniqueId: 0
+    Name: Vanila
     Price: 0
     ConeType: 0
     FlavorType1: 0
@@ -33,8 +33,128 @@ MonoBehaviour:
     ToppingType1: 0
     ToppingType2: 0
     ToppingType3: 0
-  - UniqueId: 10002
-    Name: "\uC5B4\uC9C0\uB7EC\uC6CC\uC694 \uC544\uC774"
+  - UniqueId: 0
+    Name: Strawberry
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Grape
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: MintChoco
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: RainbowSherbet
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: BasicCone
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: WafleCone
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Crepe
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Sprinkles
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Amonde&Chocoball
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Oreo
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Stick
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: Cherry
+    Price: 0
+    ConeType: 0
+    FlavorType1: 0
+    FlavorType2: 0
+    FlavorType3: 0
+    ToppingType1: 0
+    ToppingType2: 0
+    ToppingType3: 0
+  - UniqueId: 0
+    Name: SlicedStrawberry
     Price: 0
     ConeType: 0
     FlavorType1: 0
