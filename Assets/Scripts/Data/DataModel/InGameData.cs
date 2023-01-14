@@ -197,6 +197,15 @@ public class InGameData : DataBase
         return CustomerDataList[random.Next(CustomerDataList.Count)];
     }
 
+    public Order GetRandomOrderFromOrderType(OrderType orderType)
+    {
+        List<Order> spare = OrderDataList.FindAll(x => x.OrderType <= orderType);
+
+        var random = new System.Random((int)DateTime.Now.Ticks);
+
+        return spare[random.Next(spare.Count)];
+    }
+
     public Order GetRandomOrder()
     {
         var random = new System.Random((int)DateTime.Now.Ticks);
