@@ -16,12 +16,12 @@ MonoBehaviour:
   - NameString: "\uCD08\uCF5C\uB9BF"
     SalePrice: 300
     PurchasePrice: 10
-    Icon: Icon_Choco
+    Icon: Icon_Chocolate
     FlavorType: 3
   - NameString: "\uBC14\uB2D0\uB77C"
     SalePrice: 300
     PurchasePrice: 10
-    Icon: Icon_Vanila
+    Icon: Icon_Vanilla
     FlavorType: 1
   - NameString: "\uB538\uAE30"
     SalePrice: 300

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +10,14 @@ public class ShopUI : MonoBehaviour
     [Header("ShopUI")]
     //temp
     [SerializeField] private List<ShopSlot> m_ShopSlotList;
-    
     [SerializeField] private ShopPopup m_ShopPopup;
+
+    [SerializeField] private List<Sprite> m_IconList;
+
+    [Header("ForTween")] 
+    [SerializeField] private RectTransform m_OutPos;
+    [SerializeField] private RectTransform m_InPos;
+    [SerializeField] private RectTransform m_ShopUIBG;
     
     private ShopSlot m_SelectedSlot;
 
@@ -29,6 +36,18 @@ public class ShopUI : MonoBehaviour
         SetShopSlotList();
     }
 
+    [ContextMenu("UIIN")]
+    public void SetUISlideIn()
+    {
+        m_ShopUIBG.DOAnchorPos(new Vector2(m_InPos.anchoredPosition.x, m_InPos.anchoredPosition.y), 1.5f);
+    }
+
+    [ContextMenu("UIOut")]
+    public void SetUISlideOut()
+    {
+        m_ShopUIBG.DOAnchorPos(new Vector2(m_OutPos.anchoredPosition.x, m_OutPos.anchoredPosition.y), 1.5f);
+    }
+
     public void SetShopSlotList()
     {
         if (m_ShopSlotList.Count == 8)
@@ -37,21 +56,22 @@ public class ShopUI : MonoBehaviour
             int idx;
             // 1 ~ 8 번 슬롯
             // 1 ~ 3번 : 기본맛 3가지 고정
-            m_ShopSlotList[0].SetShopSlot(FlavorType.Strawberry);
-            m_ShopSlotList[1].SetShopSlot(FlavorType.Chocolate);
-            m_ShopSlotList[2].SetShopSlot(FlavorType.Vanilla);
+            m_ShopSlotList[0].SetShopSlot(FlavorType.Strawberry, GetIconSpriteFromString(FlavorType.Strawberry.ToString()));
+            m_ShopSlotList[1].SetShopSlot(FlavorType.Chocolate, GetIconSpriteFromString(FlavorType.Chocolate.ToString()));
+            m_ShopSlotList[2].SetShopSlot(FlavorType.Vanilla, GetIconSpriteFromString(FlavorType.Vanilla.ToString()));
 
+            //FlavorType.Vanilla.ToString()
             // 4번 : 콘슬롯
             idx = Random.Range(0, m_RandomConeTypeList.Count);
-            m_ShopSlotList[3].SetShopSlot(m_RandomConeTypeList[idx]);
+            m_ShopSlotList[3].SetShopSlot(m_RandomConeTypeList[idx], GetIconSpriteFromString(m_RandomConeTypeList[idx].ToString()));
 
             // 5 ~ 6번 : 추가맛 3가지중 2가지
             idx = Random.Range(0, m_RandomFlavorTypeList.Count);
-            m_ShopSlotList[4].SetShopSlot(m_RandomFlavorTypeList[idx]);
+            m_ShopSlotList[4].SetShopSlot(m_RandomFlavorTypeList[idx], GetIconSpriteFromString(m_RandomFlavorTypeList[idx].ToString()));
             m_RandomFlavorTypeList.RemoveAt(idx);
             
             idx = Random.Range(0, m_RandomFlavorTypeList.Count);
-            m_ShopSlotList[5].SetShopSlot(m_RandomFlavorTypeList[idx]);
+            m_ShopSlotList[5].SetShopSlot(m_RandomFlavorTypeList[idx], GetIconSpriteFromString(m_RandomFlavorTypeList[idx].ToString()));
             
             // 7 ~ 8번 : 토핑 2가지
             // 토핑리스트 비어있으면 빈 슬롯으로
@@ -64,11 +84,11 @@ public class ShopUI : MonoBehaviour
             else
             {
                 idx = Random.Range(0, m_RandomToppingTypeList.Count);
-                m_ShopSlotList[6].SetShopSlot(m_RandomToppingTypeList[idx]);
+                m_ShopSlotList[6].SetShopSlot(m_RandomToppingTypeList[idx], GetIconSpriteFromString(m_RandomToppingTypeList[idx].ToString()));
                 m_RandomToppingTypeList.RemoveAt(idx);
             
                 idx = Random.Range(0, m_RandomToppingTypeList.Count);
-                m_ShopSlotList[7].SetShopSlot(m_RandomToppingTypeList[idx]);
+                m_ShopSlotList[7].SetShopSlot(m_RandomToppingTypeList[idx], GetIconSpriteFromString(m_RandomToppingTypeList[idx].ToString()));
             }
             
             
@@ -77,6 +97,7 @@ public class ShopUI : MonoBehaviour
             {
                 var.GetComponent<Button>().onClick.AddListener(()=>SlotClickAction(var));
                 var.GetComponent<Button>().interactable = true;
+                var.SoldOutObj.SetActive(false);
                 SetSlotCanBuy(var);
             }
         }
@@ -134,8 +155,21 @@ public class ShopUI : MonoBehaviour
         //set slot sold out
         m_SelectedSlot.GetComponent<Button>().interactable = false;
         m_SelectedSlot.IsSoldOut = true;
+        m_SelectedSlot.SoldOutObj.SetActive(true);
         
         m_ShopPopup.gameObject.SetActive(false);
+    }
+
+    public string GetIconNameFromString(string str)
+    {
+        return "Icon_" + str;
+    }
+
+    public Sprite GetIconSpriteFromString(string objectName)
+    {
+        string iconName = GetIconNameFromString(objectName);
+        
+        return m_IconList.Find(x => x.name.Equals(iconName));
     }
 
     public void PopupCancelAction()
