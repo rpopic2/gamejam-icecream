@@ -12,6 +12,8 @@ namespace Rpopic.Window
         [SerializeField] private Button _closeButton;
         [SerializeField] private Toggle _toggle;
         [SerializeField] private float _fadeTime = 0.2f;
+        private TaskCompletionSource<bool> tcs;
+        public Task<bool> CloseAsync { get; private set; }
         private Coroutine _currentTween;
         private CanvasGroup _canvasGroup;
 #nullable enable
@@ -28,9 +30,15 @@ namespace Rpopic.Window
         {
             _canvasGroup.alpha = 0;
         }
-        private void SetActiveFalse() => gameObject.SetActive(false);
+        private void OnCloseFadeEnd()
+        {
+            gameObject.SetActive(false);
+            tcs.SetResult(true);
+        }
         public void Open(float time)
         {
+            tcs = new();
+            CloseAsync = tcs.Task;
             gameObject.SetActive(true);
             if (_toggle is Toggle toggle) toggle.SetIsOnWithoutNotify(true);
             if (_currentTween is not null) StopCoroutine(_currentTween);
@@ -40,7 +48,7 @@ namespace Rpopic.Window
         public void Close(float time)
         {
             _toggle?.SetIsOnWithoutNotify(false);
-            StartCoroutine(Fade(0, time, SetActiveFalse));
+            StartCoroutine(Fade(0, time, OnCloseFadeEnd));
         }
         private IEnumerator Fade(int target, float time, Action? onComplete = null) {
             var speed = 1 / time;
@@ -50,12 +58,6 @@ namespace Rpopic.Window
                 yield return new WaitForFixedUpdate();
             }
             onComplete?.Invoke();
-        }
-        public async Task WaitCloseAsync()
-        {
-            do {
-                await Task.Delay(100);
-            } while (gameObject.activeSelf);
         }
         public void Toggle(bool open)
         {
