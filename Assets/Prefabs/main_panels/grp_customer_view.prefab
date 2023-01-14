@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6406348513065832735}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 6406348513859293985}
   - component: {fileID: 6406348513859293987}
   - component: {fileID: 6406348513859293984}
+  - component: {fileID: 269680404263841735}
   m_Layer: 0
   m_Name: txt_talk
   m_TagString: Untagged
@@ -338,6 +339,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &269680404263841735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406348513859293990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbe41c9819444a74b84210c68586255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _typindIntervalSeconds: 0.1
 --- !u!1 &6406348513975315600
 GameObject:
   m_ObjectHideFlags: 0
