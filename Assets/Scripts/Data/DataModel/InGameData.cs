@@ -48,7 +48,7 @@ public class InGameData : DataBase
             }
             else
             {
-                Console.WriteLine($"CustomerEntityDict Duplicate {data.BodyTpe}");
+                Debug.Log($"CustomerEntityDict Duplicate {data.BodyTpe}");
             }
         }
 
@@ -117,7 +117,7 @@ public class InGameData : DataBase
                 }
             }
 
-            Console.WriteLine($"Create Customer Pool : {CustomerDataList.Count}");
+            Debug.Log($"Create Customer Pool : {CustomerDataList.Count}");
         }
 
         IceCreamDataList.Clear();
@@ -129,7 +129,12 @@ public class InGameData : DataBase
             FlavorEntityList.ForEach(flavor =>
             ToppingEntityList.ForEach(topping => IceCreamDataList.Add(new IceCream(cone, flavor, topping)))));
 
-            Console.WriteLine($"Create IceCream Pool : {IceCreamDataList.Count}");
+            ConeEntityList.ForEach(cone =>
+            FlavorEntityList.ForEach(flavor =>
+            ToppingEntityList.ForEach(topping1 =>
+            ToppingEntityList.ForEach(topping2 => IceCreamDataList.Add(new IceCream(cone, flavor, new List<ToppingEntity> { topping1, topping2 }))))));
+
+            Debug.Log($"Create IceCream Pool : {IceCreamDataList.Count}");
         }
 
         OrderDataList.Clear();
@@ -139,7 +144,9 @@ public class InGameData : DataBase
                 OrderDataList.Add(new Order(entity));
             }
 
-            Console.WriteLine($"Create Order List : {OrderDataList.Count}");
+            Debug.Log($"Create Order List : {OrderDataList.Count}");
         }
+
+        Debug.Log("InGameData Load Done");
     }
 }

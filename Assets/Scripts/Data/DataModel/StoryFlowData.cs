@@ -77,6 +77,8 @@ public class StoryFlowData : DataBase
                 NightStage = nightStage,
             });
         }
+
+        Debug.Log("StageDataLoad Done");
     }
 
     public DayStage GetDayStage(long stageId, long day)
@@ -84,5 +86,12 @@ public class StoryFlowData : DataBase
         DayStageDataDict.TryGetValue(stageId, out var dayStages);
 
         return dayStages?.FirstOrDefault(e => e.Day == day);
+    }
+
+    public NightStage GetNightStage(long stageId, long day)
+    {
+        NightStageDataDict.TryGetValue(stageId, out var nightStages);
+
+        return nightStages?.FirstOrDefault(e => e.Day == day);
     }
 }
