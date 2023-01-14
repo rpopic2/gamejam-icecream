@@ -20,6 +20,7 @@ public class SkillCheck : FillTweener
     {
         Instance = this;
         base.Awake();
+        gameObject.SetActive(false);
     }
     public void StartSkillCheck()
     {
