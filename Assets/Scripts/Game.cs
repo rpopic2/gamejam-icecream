@@ -1,32 +1,49 @@
 using UnityEngine;
 using Rpopic.Window;
+using System.Threading.Tasks;
+using System;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private DayCounter _dayCounter;
+    private bool _isGameRunning = false;
+    [SerializeField] private GameObject _canvas;
+#nullable enable
+    private static GameObjectDict<Window>? _windows = null;
     private void Awake()
     {
+        if (_isGameRunning) return;
+        if (_windows is null) _windows = new(_canvas);
         if (!DontDestroyObject.IsLoaded) SceneLoader.LoadAdditive(SceneName.DontDestroy);
     }
     private void Start()
     {
+        if (_isGameRunning) return;
+        _isGameRunning = true;
+        Main();
+    }
+    private async static void Main()
+    {
+        while (true) 
+        {
+            await Day();
+            await ShowResult();
+            //TODO await ReadyUp();
+        }
+    }
+    //TODO make async await
+    private async static Task Day()
+    {
         DayCounter.Instance.IncrementDay();
         var _timer = Timer.Instance;
-        _timer.OnTimerEnd = () => NextDay();
         _timer.SetTimer(2f);
-        _timer.StartTimer();
-        
+        await _timer.StartTimer();
     }
-    private void NextDay()
+    private async static Task ShowResult()
     {
-        AlertBox.Instance.Alert("End day", OnAnswer);
-        void OnAnswer(bool result) {
-            if (result) SceneLoader.Load(SceneName.Night);
-        }
+        await AlertBox.Instance.AlertAsync("End day");
+        var resultWindow = _windows?["win_result"] ?? throw new Exception("cannot find result window");
+        resultWindow.Open();
+        await resultWindow.AwaitClose();
     }
 }
 
-public enum WeekDayName
-{
-    Mon, Tue, Wed, Thu, Fri, Sat, Sun
-}
