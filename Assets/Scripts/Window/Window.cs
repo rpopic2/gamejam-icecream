@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 namespace Rpopic.Window
@@ -49,6 +50,12 @@ namespace Rpopic.Window
                 yield return new WaitForFixedUpdate();
             }
             onComplete?.Invoke();
+        }
+        public async Task AwaitClose()
+        {
+            do {
+                await Task.Delay(100);
+            } while (gameObject.activeSelf);
         }
         public void Toggle(bool open)
         {

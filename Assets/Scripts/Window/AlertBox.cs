@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace Rpopic.Window
     public class AlertBox : Window
     {
         public static AlertBox Instance;
+        private volatile bool _clicked = false;
         [SerializeField] private Button _cancelButton;
         [SerializeField] private Button _okButton;
         [SerializeField] private Image _titleImage;
@@ -20,20 +22,24 @@ namespace Rpopic.Window
             _cancelButton?.onClick.AddListener(() =>
             {
                 Close();
+                _clicked = true;
                 _onAnswer?.Invoke(false);
             });
             _okButton?.onClick.AddListener(() =>
             {
                 Close();
+                _clicked = true;
                 _onAnswer?.Invoke(true);
             });
             base.Awake();
         }
-        public void Alert(string text, Action<bool> onAnswer)
+        public async Task AlertAsync(string text)
         {
             InternalOpen(text);
             _cancelButton.gameObject.SetActive(false);
-            _onAnswer = onAnswer;
+            do {
+                await Task.Delay(100);
+            } while (!_clicked);
         }
         public void ImageChoose(Sprite titleSprite, Action<bool> onAnswer)
         {
@@ -52,6 +58,7 @@ namespace Rpopic.Window
         }
         private void InternalOpen(string text)
         {
+            _clicked = false;
             Open();
             _titleImage?.gameObject.SetActive(false);
             _titleText.gameObject.SetActive(true);

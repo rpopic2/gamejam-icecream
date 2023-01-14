@@ -1,5 +1,7 @@
 using UnityEngine;
 using Rpopic.Window;
+using System.Threading.Tasks;
+using System;
 
 public class Game : MonoBehaviour
 {
@@ -19,26 +21,29 @@ public class Game : MonoBehaviour
         _isGameRunning = true;
         Main();
     }
-    private static void Main()
+    private async static void Main()
     {
-        Day();
-        //TODO ReadyUp();
+        while (true) 
+        {
+            await Day();
+            await ShowResult();
+            //TODO await ReadyUp();
+        }
     }
     //TODO make async await
-    private static void Day()
+    private async static Task Day()
     {
         DayCounter.Instance.IncrementDay();
         var _timer = Timer.Instance;
-        _timer.OnTimerEnd = () => ShowResult();
         _timer.SetTimer(2f);
-        _timer.StartTimer();
+        await _timer.StartTimer();
     }
-    private static void ShowResult()
+    private async static Task ShowResult()
     {
-        AlertBox.Instance.Alert("End day", OnAnswer);
-        void OnAnswer(bool _) {
-            _windows?["win_result"].Open();
-        }
+        await AlertBox.Instance.AlertAsync("End day");
+        var resultWindow = _windows?["win_result"] ?? throw new Exception("cannot find result window");
+        resultWindow.Open();
+        await resultWindow.AwaitClose();
     }
 }
 
