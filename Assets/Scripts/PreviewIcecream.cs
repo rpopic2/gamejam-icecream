@@ -51,6 +51,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         var (score, talk) = IcecreamJudge.Evaluate(_icecream);
         print($"you get {score} score");
         Dialog.Instance.Talk(talk);
+        MoneyBalance.Instance.Balance += score;
         ClearImage();
     }
 
