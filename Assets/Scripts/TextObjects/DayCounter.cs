@@ -6,6 +6,7 @@ public class DayCounter : MonoBehaviour
     public static DayCounter Instance;
     private TMP_Text _dayText;
     private static int s_day = 0;
+    public int Day => s_day;
     
     private void Awake()
     {

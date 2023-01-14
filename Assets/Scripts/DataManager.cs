@@ -14,6 +14,9 @@ public class DataManager : MonoSingleton<DataManager>
 
     private const int m_MaxNum = 10;
     public int MaxNum => m_MaxNum;
+
+    private const int m_FlavorMaxNum = 100;
+    public int FlavorMaxNum => m_FlavorMaxNum;
     
     private void Awake()
     {

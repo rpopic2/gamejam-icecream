@@ -20,7 +20,7 @@ public class ShopUI : MonoBehaviour
     
     //temp
     private int m_Stage = 1;
-    private int m_Day = 1;
+    //private int m_Day = 1;
     
     void Start()
     {
@@ -33,7 +33,7 @@ public class ShopUI : MonoBehaviour
     {
         if (m_ShopSlotList.Count == 8)
         {
-            SetRandomList(m_Stage, m_Day);
+            SetRandomList(m_Stage, DayCounter.Instance.Day);
             int idx;
             // 1 ~ 8 번 슬롯
             // 1 ~ 3번 : 기본맛 3가지 고정
@@ -98,11 +98,11 @@ public class ShopUI : MonoBehaviour
         m_RandomToppingTypeList.Clear();
 
         m_RandomConeTypeList = DataManager.Instance.StoryFlowData.StageDataDict[m_Stage].NightStage
-            .Find(x => x.Day == m_Day).ConeTypes.ToList();
+            .Find(x => x.Day == DayCounter.Instance.Day).ConeTypes.ToList();
         m_RandomFlavorTypeList = DataManager.Instance.StoryFlowData.StageDataDict[m_Stage].NightStage
-            .Find(x => x.Day == m_Day).FlavorTypes.ToList();
+            .Find(x => x.Day == DayCounter.Instance.Day).FlavorTypes.ToList();
         m_RandomToppingTypeList = DataManager.Instance.StoryFlowData.StageDataDict[m_Stage].NightStage
-            .Find(x => x.Day == m_Day).ToppingTypes.ToList();
+            .Find(x => x.Day == DayCounter.Instance.Day).ToppingTypes.ToList();
     }
 
     public void SlotClickAction(ShopSlot slot)

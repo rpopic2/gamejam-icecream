@@ -109,7 +109,7 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
 
 public class Inventory
 {
-    private int m_Count;
+    protected int m_Count;
 
     public Inventory()
     {
@@ -121,7 +121,7 @@ public class Inventory
         return m_Count;
     }
 
-    public void SetFirstItem()
+    public virtual void SetFirstItem()
     {
         m_Count = DataManager.Instance.MaxNum;
     }
@@ -177,10 +177,16 @@ public class FlavorInventory : Inventory
     {
         FlavorType = flavor;
     }
+
+    public override void SetFirstItem()
+    {
+        m_Count = DataManager.Instance.FlavorMaxNum;
+    }
     
     public override void BuyFromShop()
     {
-        base.BuyFromShop();
+        //base.BuyFromShop();
+        m_Count = DataManager.Instance.FlavorMaxNum;
 
         long purchasePrice = DataManager.Instance.InGameData.GetFlavorEntityFromFlavorType(FlavorType).PurchasePrice;
 
