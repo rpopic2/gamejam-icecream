@@ -16,8 +16,6 @@ namespace Rpopic.Window
             }
             instance = this;
             CallAwakeOnDisabledComponents.CallAwake<Window>();
-            CallAwakeOnDisabledComponents.CallAwake<IcecreamScoop>();
-            CallAwakeOnDisabledComponents.CallAwake<SkillCheck>();
         }
     }
 }

@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class SkillCheck : FillTweener
 {
+    private const int begin = -135;
+    private const int end = 88;
     public static SkillCheck Instance;
     private bool _isFilling = true;
     [SerializeField] public Vector3 _snapOffset;
     [SerializeField] public RectTransform _starZone;
+    [SerializeField] public RectTransform _star;
     [SerializeField] private float _minSpeedSecond = 0;
     [SerializeField] private float _maxSpeedSecond = 0;
     [SerializeField] private float _minWidth = 0;
@@ -26,7 +29,7 @@ public class SkillCheck : FillTweener
         _starZone.sizeDelta = Vector2.Lerp(new(_minWidth, 0f), new(_maxWidth, 0f), randomSize);
         var randomMove = Random.Range(_minStartX, _maxEndX);
         _starZone.localPosition = Vector3.right * randomMove;
-        _speed = 1 / Random.Range(_minSpeedSecond, _maxSpeedSecond);
+        _speed = 100 * Random.Range(_minSpeedSecond, _maxSpeedSecond);
     }
     public void StopSkillCheck()
     {
@@ -34,11 +37,11 @@ public class SkillCheck : FillTweener
     }
     private void Update()
     {
-        int target = _isFilling ? 1 : 0;
-        var fill = Mathf.MoveTowards(_tweenTarget.fillAmount, target, _speed * Time.deltaTime);
-        if (fill == 1) _isFilling = false;
-        else if (fill == 0) _isFilling  = true;
-        _tweenTarget.fillAmount = fill;
+        int target = _isFilling ? end : begin;
+        var fill = Mathf.MoveTowards(_star.localPosition.x, target, _speed * Time.deltaTime);
+        if (fill == end) _isFilling = false;
+        else if (fill == begin) _isFilling  = true;
+        _star.localPosition = new(fill, _star.localPosition.y, 0f);
     }
     public void SnapPosition(Transform dest)
     {
