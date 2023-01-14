@@ -13,19 +13,15 @@ MonoBehaviour:
   m_Name: CustomerData
   m_EditorClassIdentifier: 
   CustomerDatas:
-  - UniqueId: 10000
+  - UniqueId: 0
     IceCreamId: 0
     ScenarioId: 0
-    Name: "\uD0A4\uAC00 \uD070 \uC544\uC800\uC528"
-  - UniqueId: 10001
+    Name: 
+  - UniqueId: 0
     IceCreamId: 0
     ScenarioId: 0
-    Name: "\uB540\uC744 \uBED8\uBED8 \uD559\uC0DD"
-  - UniqueId: 10002
+    Name: 
+  - UniqueId: 0
     IceCreamId: 0
     ScenarioId: 0
-    Name: "\uC5B4\uC9C0\uB7EC\uC6CC\uC694 \uC544\uC774"
-  - UniqueId: 10003
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: "\uD14C\uC2A4\uD2B8\uCF00\uC774\uC2A4"
+    Name: 
