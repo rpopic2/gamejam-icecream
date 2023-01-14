@@ -3,12 +3,16 @@ using UnityEngine;
 public class IcecreamScoop : MonoBehaviour
 {
     public static IcecreamScoop Instance;
+
+    public int flavorIdx;
+
     private void Awake()
     {
         Instance = this;
     }
-    public void Scoop()
+    public void Scoop(int _flavor)
     {
+        flavorIdx = _flavor;
         gameObject.SetActive(true);
     }
     public void Clear()

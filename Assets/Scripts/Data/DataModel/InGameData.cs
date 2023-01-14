@@ -174,6 +174,15 @@ public class InGameData : DataBase
         return flavorEntity;
     }
 
+    public ReactionEntity GetRandomReactionFromActionType(ActionType action)
+    {
+        List<ReactionEntity> reactionEntitys = ReactionEntityList.FindAll(x => x.ActionType == action);
+
+        var random = new System.Random((int)DateTime.Now.Ticks);
+
+        return reactionEntitys[random.Next(reactionEntitys.Count)];
+    }
+
     public ToppingEntity GetToppingEntityFromToppingType(ToppingType topping)
     {
         ToppingEntity toppingEntity = ToppingEntityList.Find(x => x.ToppingType == topping);
@@ -194,4 +203,5 @@ public class InGameData : DataBase
 
         return OrderDataList[random.Next(OrderDataList.Count)];
     }
+
 }
