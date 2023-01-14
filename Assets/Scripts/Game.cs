@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     private static Window s_resultWindow;
 #nullable enable
     private static GameObjectDict<Window>? s_windows;
+    public static volatile bool IsDay = true;
     private bool _isGameRunning = false;
     private void Awake()
     {
@@ -37,10 +38,14 @@ public class Game : MonoBehaviour
     }
     private static async Task Day()
     {
+        IsDay = true;
         DayCounter.Instance.IncrementDay();
+        PreviewIcecream.Instance.StartLoop();
         var _timer = Timer.Instance;
         _timer.SetTimer(s_instance._dayTimeLimit);
         await _timer.StartTimerAsync();
+        IsDay = false;
+        await PreviewIcecream.Instance.UserSubmit;
     }
     private static async Task ShowResult()
     {
