@@ -51,7 +51,7 @@ namespace Rpopic.Window
             }
             onComplete?.Invoke();
         }
-        public async Task AwaitClose()
+        public async Task WaitCloseAsync()
         {
             do {
                 await Task.Delay(100);
