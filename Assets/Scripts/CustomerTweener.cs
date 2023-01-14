@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 public class CustomerTweener : MonoBehaviour
 {
     public static CustomerTweener Instance;
-    [SerializeField] private Image _customerImage;
+    [SerializeField] private Transform _tweenTarget;
+    [SerializeField] private Ease _ease = Ease.InBounce;
+    [SerializeField] private float _outTargetPos;
+    [SerializeField] private float _inTargetPos;
+    [SerializeField] private float _overshoot = 0.1f;
+    [SerializeField] private float _duration = 1f;
     private float _imageHeight;
     private void Awake()
     {
@@ -15,13 +20,13 @@ public class CustomerTweener : MonoBehaviour
     }
     public async Task CustomerIn()
     {
-        var tween = _customerImage.transform.DOLocalMoveY(0f, 1f);
-        tween.SetEase(Ease.InBounce, 0.1f);
+        var tween = _tweenTarget.DOLocalMoveY(_inTargetPos, _duration);
+        tween.SetEase(_ease, _overshoot);
         await tween.AsyncWaitForCompletion();
     }
     public async Task CustomerOut()
     {
-        var tween = _customerImage.transform.DOLocalMoveY(-_imageHeight, 1f);
+        var tween = _tweenTarget.DOLocalMoveY(_outTargetPos, 1f);
         await tween.AsyncWaitForCompletion();
     }
 }
