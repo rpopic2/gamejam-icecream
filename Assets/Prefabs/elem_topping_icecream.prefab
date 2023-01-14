@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7037832563409897414}
   - component: {fileID: 7037832563409897415}
   m_Layer: 0
-  m_Name: img_icecream_topping
+  m_Name: elem_topping_icecream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

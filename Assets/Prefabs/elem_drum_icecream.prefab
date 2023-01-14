@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 673449554509457554}
   - component: {fileID: 673449554509457556}
   - component: {fileID: 673449554509457557}
+  - component: {fileID: 8120453793274936086}
   m_Layer: 0
-  m_Name: img_icecream_drum
+  m_Name: elem_drum_icecream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,3 +77,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8120453793274936086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673449554509457555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d7daf559ce44af0944d9328a18e48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoop: {fileID: 0}

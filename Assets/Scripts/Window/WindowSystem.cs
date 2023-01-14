@@ -16,8 +16,10 @@ namespace Rpopic.Window
             }
             instance = this;
             CallAwakeOnDisabledComponents<Window>();
+            CallAwakeOnDisabledComponents<IcecreamScoop>();
+            CallAwakeOnDisabledComponents<SkillCheck>();
         }
-        private static void CallAwakeOnDisabledComponents<T>() where T : Component
+        public static void CallAwakeOnDisabledComponents<T>() where T : Component
         {
             T[] components = GameObject.FindObjectsOfType<T>(true);
             T[] enabledComponents = GameObject.FindObjectsOfType<T>();
