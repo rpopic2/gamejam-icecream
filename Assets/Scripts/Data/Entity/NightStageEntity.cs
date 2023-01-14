@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 
 [Serializable]
-public class DayStageEntity
+public class NightStageEntity
 {
     public long StageId;
     public long Day;
+
     public string ConePool;
     public string FlavorPool;
     public string ToppingPool;
 
-    public long MaxToppingNum;
+    public long MoveCost;
+    public long Honor;
 }
 
-public class DayStage
+public class NightStage
 {
     public long StageId { get; set; }
     public long Day { get; set; }
-    public long MaxToppingNum { get; set; }
+    public long MoveCost { get; set; }
+    public long Honor { get; set; }
     public List<ConeType> ConeTypes { get; set; } = new List<ConeType>();
     public List<FlavorType> FlavorTypes { get; set; } = new List<FlavorType>();
     public List<ToppingType> ToppingTypes { get; set; } = new List<ToppingType>();
 
-    public DayStage(DayStageEntity data)
+    public NightStage(NightStageEntity data)
     {
         StageId = data.StageId;
         Day = data.Day;
-        
-        MaxToppingNum = data.MaxToppingNum;
 
+        MoveCost = data.MoveCost;
+        Honor = data.Honor;
 
         if (!String.IsNullOrEmpty(data.ConePool))
         {
@@ -45,7 +48,5 @@ public class DayStage
         {
             data.ToppingPool.Split(';').ToList().ForEach(e => ToppingTypes.Add((ToppingType)Enum.Parse(typeof(ToppingType), e)));
         }
-
-
     }
 }

@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public class DataManager : MonoSingleton<DataManager>
 {
-    // TODO
-    // 데이터 로딩 UI Text 표기
+    [SerializeField] private InGameData _inGameData;
+    [SerializeField] private StoryFlowData _storyFlowData;
+
+    public InGameData InGameData => _inGameData;
+    public StoryFlowData StoryFlowData => _storyFlowData;
+
     private void Start()
     {
-        InGameData.Instance.LowDataLoad();
+        InGameData.LowDataLoad();
+        StoryFlowData.LowDataLoad();
 
-        InGameData.Instance.ProcessedDataLoad();
+        InGameData.ProcessedDataLoad();
+        StoryFlowData.ProcessedDataLoad();
     }
 }

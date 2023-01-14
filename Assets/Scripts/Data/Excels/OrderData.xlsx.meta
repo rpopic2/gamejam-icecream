@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Scripts/Data/Excels/OrderData.xlsx.meta
 guid: fea521a46a6c44b4982c5fecb26deb62
+========
+guid: 4119610836d2d234e802c2a5f4551e9e
+>>>>>>>> ExcelDataResources:Assets/Scripts/Data/Excels/CustomerTypeData.xlsx.meta
+=======
+guid: 8ac60d647ae6555439f1155121cb16ed
+>>>>>>> ExcelDataResources
 DefaultImporter:
   externalObjects: {}
   userData: 

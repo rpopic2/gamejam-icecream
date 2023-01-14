@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1684046cbfd054aac140951cb5d296, type: 3}
+  m_Name: ReactionData
+  m_EditorClassIdentifier: 
+  ReactionDatas:
+  - ActionType: 0
+    Script: "\uC544..! \uC0B4 \uAC83 \uAC19\uB2E4.."
+    Reward: 1.5
+    Honor: 5
+  - ActionType: 0
+    Script: "\uAC10\uC0AC\uD569\uB2C8\uB2E4! \uC815\uB9D0 \uB9DB\uC788\uC5B4 \uBCF4\uC774\uB124\uC694!"
+    Reward: 1.5
+    Honor: 5
+  - ActionType: 0
+    Script: "\uB458\uC774 \uBA39\uB2E4 \uD558\uB098 \uCA84 \uC8FD\uC5B4\uB3C4 \uBAA8\uB97C
+      \uB9DB!"
+    Reward: 1.5
+    Honor: 5
+  - ActionType: 0
+    Script: "\uC640! \uC774\uAC8C \uC544\uC774\uC2A4\uD06C\uB9BC\uC774\uAD6C\uB098!"
+    Reward: 1.5
+    Honor: 5
+  - ActionType: 0
+    Script: "\uCD5C\uACE0\uC5D0\uC694! "
+    Reward: 1.5
+    Honor: 5
+  - ActionType: 1
+    Script: "\uAC10\uC0AC\uD569\uB2C8\uB2E4."
+    Reward: 1
+    Honor: 2
+  - ActionType: 1
+    Script: "\uBB54\uAC00 \uB2E4\uB978 \uAC83 \uAC19\uC740\uB370.. \uADF8\uB798\uB3C4
+      \uC798 \uBA39\uC744\uAC8C\uC694."
+    Reward: 1
+    Honor: 2
+  - ActionType: 1
+    Script: "\uC798 \uBA39\uACA0\uC2B5\uB2C8\uB2E4."
+    Reward: 1
+    Honor: 2
+  - ActionType: 1
+    Script: "\uC74C.. \uC774\uB7F0 \uB9DB\uC774\uAD6C\uB098."
+    Reward: 1
+    Honor: 2
+  - ActionType: 1
+    Script: "\uB9DB\uC788\uB124\uC694."
+    Reward: 1
+    Honor: 2
+  - ActionType: 2
+    Script: "\uC774\uAC8C.. \uB9DE\uB098\uC694..?"
+    Reward: 0.5
+    Honor: -5
+  - ActionType: 2
+    Script: "\uC5D0\uC789 \uC774\uAC8C \uC544\uB2CC\uB370..\uCBE7.."
+    Reward: 0.5
+    Honor: -5
+  - ActionType: 2
+    Script: "\uBB50\uC57C.. \uC7A5\uC0AC\uD560 \uC0DD\uAC01 \uC5C6\uC5B4\uC694?"
+    Reward: 0.5
+    Honor: -5
+  - ActionType: 2
+    Script: "\uB0B4 \uC544\uC774\uC2A4\uD06C\uB9BC\uC774 \uC544\uB2C8\uC57C!"
+    Reward: 0.5
+    Honor: -5
+  - ActionType: 2
+    Script: "\uC774\uB7F4\uAC70\uBA74 \uC8FC\uBB38 \uC65C \uBC1B\uC740\uAC70\uC8E0?"
+    Reward: 0.5
+    Honor: -5

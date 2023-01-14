@@ -1,15 +1,24 @@
-public enum CommunicationType
+public enum BodyType
 {
-    None = 0,
-    EnterShop = 1,
-    ExitShop = 2,
+    Male,
+    Female,
+    Child,
+}
+
+public enum BodyBaseType
+{
+    Skin,
+    Hair,
+    Face,
+    Clothes,
 }
 
 public enum ConeType
 {
-    Cone,
-    Cup,
-    Bar,
+    None,
+    BasicCone,
+    WafleCone,
+    Crepe,
 }
 
 public enum FlavorType
@@ -18,9 +27,34 @@ public enum FlavorType
     Vanilla,
     Strawberry,
     Chocolate,
+    Grape,
+    MintChoco,
+    RainbowSherbet,
 }
 
 public enum ToppingType
 {
     None,
+    Sprinkles,
+    AmondeChoco,
+    Oreo,
+    Stick,
+    Cherry,
+    SlicedStrawberry
+}
+
+public enum OrderType
+{
+    OnlyFlavor,
+    ConeAndFlavor,
+    ConeAndFlavorWithTopping1,
+    ConeAndFlavorWithTopping2,
+    ConeAndFlavorWithTopping3,
+}
+
+public enum ActionType
+{
+    Perfect,
+    Good,
+    Bad,
 }

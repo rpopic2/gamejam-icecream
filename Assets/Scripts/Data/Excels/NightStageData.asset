@@ -9,63 +9,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981b9a13cf5bcf440802a6f13a2591c7, type: 3}
-  m_Name: DayStageData
+  m_Script: {fileID: 11500000, guid: 544f3093882a21f43ab70f59197783e9, type: 3}
+  m_Name: NightStageData
   m_EditorClassIdentifier: 
-  DayStageDatas:
+  NightStageDatas:
   - StageId: 1
     Day: 1
-<<<<<<< HEAD
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 2
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 3
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 4
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 5
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-=======
     ConePool: BasicCone;WafleCone
     FlavorPool: Vanilla;Strawberry;Chocolate
     ToppingPool: 
-    MaxToppingNum: 0
+    MoveCost: 1000
+    Honor: 0
   - StageId: 1
     Day: 2
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Vanilla;Strawberry;Chocolate;Grape
     ToppingPool: Sprinkles
-    MaxToppingNum: 1
+    MoveCost: 1000
+    Honor: 0
   - StageId: 1
     Day: 3
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick
-    MaxToppingNum: 2
+    MoveCost: 1000
+    Honor: 0
   - StageId: 1
     Day: 4
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
-    MaxToppingNum: 3
+    MoveCost: 1000
+    Honor: 0
   - StageId: 1
     Day: 5
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
-    MaxToppingNum: 3
->>>>>>> ExcelDataResources
+    MoveCost: 0
+    Honor: 100

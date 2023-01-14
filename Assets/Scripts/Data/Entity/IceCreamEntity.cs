@@ -1,55 +1,109 @@
 ﻿using System;
 using System.Collections.Generic;
 
-[Serializable]
-public class IceCreamEntity
+public class IceCreamBaseEntity
 {
-    public long UniqueId;
-    public string Name;
-    public long Price;
-    public ConeType ConeType;
-    public FlavorType FlavorType1;
-    public FlavorType FlavorType2;
-    public FlavorType FlavorType3;
-    public ToppingType ToppingType1;
-    public ToppingType ToppingType2;
-    public ToppingType ToppingType3;
+    public string NameString;
+    public long SalePrice;
+    public long PurchasePrice;
+    public string Icon;
 }
 
-public class IceCream
+public class IceCreamBase
 {
-    public long UniqueId { get; set; }
-    public string Name { get; set; }
-    public long Price { get; set; }
-    public ConeType ConeType { get; set; }
-    public List<FlavorType> FlavorTypes { get; set; }
-    public List<ToppingType> ToppingTypes { get; set; }
+    public string NameString;
+    public long SalePrice;
+    public long PurchasePrice;
 
-    public IceCream(long uniqueId, string name, long price,
-        ConeType coneType, 
-        FlavorType flavorType1, FlavorType flavorType2, FlavorType flavorType3,
-        ToppingType toppingType1, ToppingType toppingType2, ToppingType toppingType3)
+    public IceCreamBase(IceCreamBaseEntity data)
     {
-        UniqueId = uniqueId;
-        Name = name;
-        Price = price;
+        NameString = data.NameString;
+        SalePrice = data.SalePrice;
+        PurchasePrice = data.PurchasePrice;
+    }
+}
 
-        ConeType = coneType;
-        FlavorTypes = new List<FlavorType>();
-        ToppingTypes = new List<ToppingType>();
 
-        if (flavorType1 != FlavorType.None)
-            FlavorTypes.Add(flavorType1);
-        if (flavorType2 != FlavorType.None)
-            FlavorTypes.Add(flavorType2);
-        if (flavorType3 != FlavorType.None)
-            FlavorTypes.Add(flavorType3);
+[Serializable]
+public class ConeEntity : IceCreamBaseEntity
+{
+    public ConeType ConeType;
 
-        if (toppingType1 != ToppingType.None)
-            ToppingTypes.Add(toppingType1);
-        if (toppingType2 != ToppingType.None)
-            ToppingTypes.Add(toppingType2);
-        if (toppingType3 != ToppingType.None)
-            ToppingTypes.Add(toppingType3);
+    public ConeEntity Clone()
+    {
+        return new ConeEntity
+        {
+            NameString = NameString,
+            ConeType = ConeType,
+            SalePrice = SalePrice,
+            PurchasePrice = PurchasePrice,
+            Icon = Icon,
+        };
+    }
+}
+
+public class Cone : IceCreamBase
+{
+    public ConeType ConeType;
+
+    public Cone(IceCreamBaseEntity data, ConeType cone) : base(data)
+    {
+        ConeType = cone;
+    }
+}
+
+[Serializable]
+public class FlavorEntity : IceCreamBaseEntity
+{
+    public FlavorType FlavorType;
+
+    public FlavorEntity Clone()
+    {
+        return new FlavorEntity
+        {
+            NameString = NameString,
+            FlavorType = FlavorType,
+            SalePrice = SalePrice,
+            PurchasePrice = PurchasePrice,
+            Icon = Icon,
+        };
+    }
+}
+
+public class Flavor : IceCreamBase
+{
+    public FlavorType FlavorType;
+
+    public Flavor(IceCreamBaseEntity data, FlavorType flavor) : base(data)
+    {
+        FlavorType = flavor;
+    }
+}
+
+[Serializable]
+public class ToppingEntity : IceCreamBaseEntity
+{
+    public ToppingType ToppingType;
+
+    public ToppingEntity Clone()
+    {
+        return new ToppingEntity
+        {
+            NameString = NameString,
+            ToppingType = ToppingType,
+            SalePrice = SalePrice,
+            PurchasePrice = PurchasePrice,
+            Icon = Icon,
+        };
+    }
+}
+
+public class Topping : IceCreamBase
+{
+    public ToppingType ToppingType;
+
+    public Topping(IceCreamBaseEntity data, ToppingType topping) : base(data)
+    {
+        ToppingType = topping;
     }
 }

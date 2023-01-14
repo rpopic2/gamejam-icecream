@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Scripts/Data/Excels/CustomerTypeData.xlsx.meta
 guid: 0cbee92b07dd744a7acc300927d23a0d
 ========
 guid: 43881934054391e43ba6c11bcfc073b9
 >>>>>>>> ExcelDataResources:Assets/Scripts/Data/Excels/ConeData.xlsx.meta
-=======
-<<<<<<<< HEAD:Assets/Scripts/Data/Excels/OrderData.xlsx.meta
-guid: fea521a46a6c44b4982c5fecb26deb62
-========
-guid: 4119610836d2d234e802c2a5f4551e9e
->>>>>>>> ExcelDataResources:Assets/Scripts/Data/Excels/CustomerTypeData.xlsx.meta
->>>>>>> ExcelDataResources
 DefaultImporter:
   externalObjects: {}
   userData: 
