@@ -561,6 +561,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 81e26f6f839231447b87bf6ed3191ded, type: 3}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[0].name
+      value: BGM_DayTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2f018304c8748f44870d4c94d0496ba, type: 3}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[1].name
+      value: BGM_NightTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c4745ef8abb34249bec05fe75916b6e, type: 3}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_BGM.Array.data[2].name
+      value: BGM_Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[0].name
+      value: SFX_BtnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[1].name
+      value: SFX_Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[2].name
+      value: SFX_GetCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[3].name
+      value: SFX_UseCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[4].name
+      value: SFX_CalcDay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[5].name
+      value: SFX_TimeOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[6].name
+      value: SFX_NextDayStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[7].name
+      value: SFX_GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[8].name
+      value: SFX_GameWin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[9].name
+      value: SFX_IcecreamInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[10].name
+      value: SFX_GetIcecream
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316188299498507343, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
+      propertyPath: list_SFX.Array.data[11].name
+      value: SFX_SetIcecream
+      objectReference: {fileID: 0}
     - target: {fileID: 6737581429330755475, guid: 185a8b6f1d1bc4d46bbaf2474a3b4f89, type: 3}
       propertyPath: m_RootOrder
       value: 4
