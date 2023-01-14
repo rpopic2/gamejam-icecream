@@ -356,6 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6579516232660813778}
   - component: {fileID: 9183816313751504699}
+  - component: {fileID: 2325042121452604957}
   m_Layer: 0
   m_Name: grp_balance
   m_TagString: Untagged
@@ -412,6 +413,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2325042121452604957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343797649029723861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd66c44a14fbd481e862e49649d87fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _balanceText: {fileID: 3485537225873906443}
+  _startingMoney: 1000
 --- !u!1 &6526027235570465263
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,20 +13,6 @@ MonoBehaviour:
   m_Name: CustomerData
   m_EditorClassIdentifier: 
   CustomerDatas:
-<<<<<<< HEAD
-  - UniqueId: 0
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: 
-  - UniqueId: 0
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: 
-  - UniqueId: 0
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: 
-=======
   - BodyTpe: 0
     SkinPool: 1;2;3
     HairPool: 10;11;12
@@ -42,4 +28,3 @@ MonoBehaviour:
     HairPool: 16;17;18
     FacePool: 25;26;27
     ClothesPool: 34;35;36
->>>>>>> ExcelDataResources

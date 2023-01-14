@@ -15,31 +15,6 @@ MonoBehaviour:
   DayStageDatas:
   - StageId: 1
     Day: 1
-<<<<<<< HEAD
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 2
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 3
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 4
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-  - StageId: 1
-    Day: 5
-    CustomerFull: 
-    FlavorFull: 
-    ToppingFull: 
-=======
     ConePool: BasicCone;WafleCone
     FlavorPool: Vanilla;Strawberry;Chocolate
     ToppingPool: 
@@ -68,4 +43,3 @@ MonoBehaviour:
     FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
     ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
     MaxToppingNum: 3
->>>>>>> ExcelDataResources

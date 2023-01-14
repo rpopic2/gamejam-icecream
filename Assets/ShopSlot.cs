@@ -15,7 +15,7 @@ public class ShopSlot : MonoBehaviour
     private bool m_isSoldOut = false;
     private string temp_Name;
 
-    public IceCreamEntity IceCreamData { get; set; }
+    //public IceCreamEntity IceCreamData { get; set; }
 
     public void SetShopSlot()
     {

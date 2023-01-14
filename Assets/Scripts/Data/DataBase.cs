@@ -1,8 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System;
 
-public class DataBase
+public class DataBase : MonoBehaviour
 {
     public virtual void LowDataLoad() { }
 

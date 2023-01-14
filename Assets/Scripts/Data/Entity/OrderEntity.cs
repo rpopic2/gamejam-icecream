@@ -31,7 +31,7 @@ public class Order
         Script = data.Script;
     }
 
-    private string OrderScriptParse(IceCream iceCream, OrderType orderType)
+    public string OrderScriptParse(IceCream iceCream, OrderType orderType)
     {
         switch (orderType)
         {
@@ -39,12 +39,10 @@ public class Order
                 return String.Format(Script, iceCream.Flavor.NameString);
             case OrderType.ConeAndFlavor:
                 return String.Format(Script, iceCream.Flavor.NameString, iceCream.Cone.NameString);
-            //case OrderType.ConeAndFlavorWithTopping1:
-            //    return String.Format(Script, iceCream.Flavor.NameString, iceCream.Cone.NameString, iceCream.Topping.NameString);
-            //case OrderType.ConeAndFlavorWithTopping2:
-            //    return String.Format(Script, iceCream.Flavor.NameString, iceCream.Cone.NameString);
-            //case OrderType.ConeAndFlavorWithTopping3:
-            //    return String.Format(Script, iceCream.Flavor.NameString, iceCream.Cone.NameString);
+            case OrderType.ConeAndFlavorWithTopping1:
+            case OrderType.ConeAndFlavorWithTopping2:
+            case OrderType.ConeAndFlavorWithTopping3:
+                return String.Format(Script, iceCream.Flavor.NameString, iceCream.Cone.NameString, iceCream.Toppings);
         }
         return "parse error";
     }
