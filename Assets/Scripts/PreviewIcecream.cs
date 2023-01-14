@@ -24,7 +24,6 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         IcecreamScoop.Instance.Clear();
-        print("click");
         SetFlavor(0);
     }
 }
