@@ -27,10 +27,13 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     private IcecreamData _icecream;
     private TaskCompletionSource<bool> _tcs;
     public Task<bool> UserSubmit { get; private set; }
+    [SerializeField] private GameObject _drumParent;
+    public static GameObjectDict<FlavorSelection> _drums;
     private void Awake()
     {
         Instance = this;
         _submitButton.onClick.AddListener(Submit);
+        _drums = new(_drumParent);
     }
     public async void StartLoop()
     {
@@ -44,6 +47,9 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
             await UserSubmit;
             await Dialog.Instance.WaitDialogAsync();
             await CustomerTweener.Instance.CustomerOut();
+            foreach (var drum in _drums) {
+                drum.AllowClick(true);
+            }
         } while (Game.IsDay);
     }
     private void Init()

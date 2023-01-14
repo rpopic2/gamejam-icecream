@@ -22,9 +22,10 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void Reset() 
     {
         RefreshSprite();
-        enabled = true;
+        AllowClick(true);
         _image.gameObject.SetActive(true);
     }
+    public void AllowClick(bool value) => enabled = value;
     public void OnPointerClick(PointerEventData eventData) { }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -37,6 +38,9 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
         IcecreamScoop.Instance.Scoop(_index);
         _current -= SCOOP_PERFECT_AMOUNT;
         RefreshSprite();
+        foreach(var v in PreviewIcecream._drums) {
+            v.AllowClick(false);
+        }
     }
     private void RefreshSprite()
     {
@@ -47,7 +51,7 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
         else
         {
             _image.gameObject.SetActive(false);
-            enabled = false;
+            AllowClick(false);
         }
     }
     private Sprite? GetCurrentSprite => _current switch {

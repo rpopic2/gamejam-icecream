@@ -189,6 +189,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &88312030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8776606462680922010, guid: 660524ad67f2c4accbdba1e7afc606d7, type: 3}
+  m_PrefabInstance: {fileID: 8776606462994367183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &123232257 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7736013236147463843, guid: de8dc7267166b4ba99f7326577742a81, type: 3}
@@ -2331,6 +2336,10 @@ PrefabInstance:
       propertyPath: UICustomer
       value: 
       objectReference: {fileID: 4762513524056944323}
+    - target: {fileID: 479302173197567592, guid: 85719eb5743c84283b1f6ea05f8cba93, type: 3}
+      propertyPath: _drumParent
+      value: 
+      objectReference: {fileID: 88312030}
     - target: {fileID: 8356425509119300178, guid: 85719eb5743c84283b1f6ea05f8cba93, type: 3}
       propertyPath: m_Name
       value: pnl_preview_panel
