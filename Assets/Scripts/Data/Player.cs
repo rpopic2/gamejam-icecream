@@ -32,6 +32,6 @@ public class Player
 
     public void SetOrder()
     {
-        Order = DataManager.Instance.InGameData.GetRandomOrder();
+        Order = DataManager.Instance.InGameData.GetRandomOrderFromOrderType((OrderType)DayCounter.Instance.Day);
     }
 }
