@@ -16,6 +16,16 @@ public class IcecreamScoop : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+    public void Maximize()
+    {
+        //TODO change sprite
+        transform.localScale *= 4;
+    }
+    public void RestoreSize()
+    {
+        //TODO change sprite
+        transform.localScale /= 4;
+    }
     private void Update()
     {
         transform.position = Input.mousePosition;

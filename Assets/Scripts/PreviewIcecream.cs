@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PreviewIcecream : MonoBehaviour, IPointerClickHandler
+public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public static PreviewIcecream Instance;
     [SerializeField] Image _previewImage;
@@ -25,5 +25,15 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler
     {
         IcecreamScoop.Instance.Clear();
         SetFlavor(0);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        IcecreamScoop.Instance.Maximize();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        IcecreamScoop.Instance.RestoreSize();
     }
 }
