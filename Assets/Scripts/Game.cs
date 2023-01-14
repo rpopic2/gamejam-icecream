@@ -19,8 +19,7 @@ public class Game : MonoBehaviour
         s_instance = this;
         if (s_windows is null) s_windows = new(_canvas);
         s_resultWindow = s_windows?["win_result"] ?? throw new Exception("cannot find result window");
-        //if (!DontDestroyObject.IsLoaded) 
-            SceneLoader.LoadAdditive(SceneName.DontDestroy);
+        DontDestroyObject.LoadDontDestroy();
     }
     private void Start()
     {
@@ -52,7 +51,7 @@ public class Game : MonoBehaviour
     {
         await AlertBox.Instance.AlertAsync("End day");
         s_resultWindow.Open();
-        await s_resultWindow.WaitCloseAsync();
+        await s_resultWindow.CloseAsync;
     }
 }
 

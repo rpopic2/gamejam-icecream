@@ -13,11 +13,12 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     [SerializeField] private List<ConeType> m_StartingConeList;
     [SerializeField] private List<FlavorType> m_StartingFlavorList;
     [SerializeField] private List<ToppingType> m_StartingToppingList;
-    public int PlayerMoney { get; set; } = 0;
+    public int PlayerMoney { get; set; } = 10000;
+    public int PlayerHonor { get; set; } = 0;
 
-    public List<ConeInventory> ConeInvenList;
-    public List<FlavorInventory> FlavorInvenList;
-    public List<ToppingInventory> ToppingInvenList;
+    public List<ConeInventory> ConeInvenList = new List<ConeInventory>();
+    public List<FlavorInventory> FlavorInvenList = new List<FlavorInventory>();
+    public List<ToppingInventory> ToppingInvenList = new List<ToppingInventory>();
 
     private void Start()
     {
@@ -60,6 +61,50 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
             }
         }
     }
+
+    public int GetItemNumberFromType(ConeType cone)
+    {
+        return ConeInvenList.Find(x => x.ConeType == cone).GetCount();
+    }
+
+    public int GetItemNumberFromType(FlavorType flavor)
+    {
+        return FlavorInvenList.Find(x => x.FlavorType == flavor).GetCount();
+    }
+
+    public int GetItemNumberFromType(ToppingType topping)
+    {
+        return ToppingInvenList.Find(x => x.ToppingType == topping).GetCount();
+    }
+
+    public void UseItemFromType(ConeType cone)
+    {
+        if(ConeInvenList.Find(x => x.ConeType == cone).IsMoreThanOne())
+            ConeInvenList.Find(x => x.ConeType == cone).UseItem();
+        
+        Debug.Log("Item is empty");
+    }
+    
+    public void UseItemFromType(FlavorType flavor)
+    {
+        if(FlavorInvenList.Find(x => x.FlavorType == flavor).IsMoreThanOne())
+            FlavorInvenList.Find(x => x.FlavorType == flavor).UseItem();
+        
+        Debug.Log("Item is empty");
+    }
+    
+    public void UseItemFromType(ToppingType topping)
+    {
+        if(ToppingInvenList.Find(x => x.ToppingType == topping).IsMoreThanOne())
+            ToppingInvenList.Find(x => x.ToppingType == topping).UseItem();
+        
+        Debug.Log("Item is empty");
+    }
+
+    public void UpdateMoneyText()
+    {
+        m_CoinText.text = PlayerMoney.ToString();
+    }
 }
 
 public class Inventory
@@ -93,6 +138,14 @@ public class Inventory
 
         m_Count -= 1;
     }
+
+    public bool IsMoreThanOne()
+    {
+        if (m_Count > 0)
+            return true;
+
+        return false;
+    }
 }
 
 public class ConeInventory : Inventory
@@ -111,6 +164,7 @@ public class ConeInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetConeEntityFromConeType(ConeType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }
 
@@ -131,6 +185,7 @@ public class FlavorInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetFlavorEntityFromFlavorType(FlavorType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }
 
@@ -150,5 +205,6 @@ public class ToppingInventory : Inventory
         long purchasePrice = DataManager.Instance.InGameData.GetToppingEntityFromToppingType(ToppingType).PurchasePrice;
 
         PlayerDataManager.Instance.PlayerMoney -= (int)purchasePrice;
+        PlayerDataManager.Instance.UpdateMoneyText();
     }
 }

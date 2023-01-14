@@ -217,6 +217,7 @@ MonoBehaviour:
   m_NameText: {fileID: 6525900362927256079}
   m_CoinIconImg: {fileID: 5533036184560558888}
   m_PriceText: {fileID: 6201694470131733119}
+  m_PriceArea: {fileID: 7281705506471378590}
 --- !u!1 &6970031107418382079
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,8 +288,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72b915d38a8a2cf4db015bf6dbe9b634, type: 2}
+  m_sharedMaterial: {fileID: 8772832970166083853, guid: 72b915d38a8a2cf4db015bf6dbe9b634, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -462,8 +463,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 72b915d38a8a2cf4db015bf6dbe9b634, type: 2}
+  m_sharedMaterial: {fileID: 8772832970166083853, guid: 72b915d38a8a2cf4db015bf6dbe9b634, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

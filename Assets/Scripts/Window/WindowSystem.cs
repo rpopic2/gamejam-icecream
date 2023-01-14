@@ -8,28 +8,35 @@ namespace Rpopic.Window
         public static WindowSystem instance;
         private void Awake()
         {
-            // DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this);
             if (instance is not null)
             {
                 Debug.LogWarning("한 개 이상의 WindowSystem이 Instantiate되었습니다. 이 오브젝트를 제거합니다.");
                 Destroy(this);
             }
             instance = this;
-            CallAwakeOnDisabledComponents<Window>();
-            CallAwakeOnDisabledComponents<IcecreamScoop>();
-            CallAwakeOnDisabledComponents<SkillCheck>();
-        }
-        public static void CallAwakeOnDisabledComponents<T>() where T : Component
-        {
-            T[] components = GameObject.FindObjectsOfType<T>(true);
-            T[] enabledComponents = GameObject.FindObjectsOfType<T>();
-            components = components.Except(enabledComponents).ToArray();
-
-            foreach (T component in components)
-            {
-                component.gameObject.SetActive(true);
-                component.gameObject.SetActive(false);
-            }
+            CallAwakeOnDisabledComponents.CallAwake<Window>();
+            CallAwakeOnDisabledComponents.CallAwake<IcecreamScoop>();
+            CallAwakeOnDisabledComponents.CallAwake<SkillCheck>();
         }
     }
 }
+public static class CallAwakeOnDisabledComponents
+{
+    static CallAwakeOnDisabledComponents() {
+        CallAwakeOnDisabledComponents.CallAwake<CallMeAwakeEvenDisabled>();
+    }
+    public static void CallAwake<T>() where T : Component
+    {
+        T[] components = GameObject.FindObjectsOfType<T>(true);
+        T[] enabledComponents = GameObject.FindObjectsOfType<T>();
+        components = components.Except(enabledComponents).ToArray();
+
+        foreach (T component in components)
+        {
+            component.gameObject.SetActive(true);
+            component.gameObject.SetActive(false);
+        }
+    }
+}
+public class CallMeAwakeEvenDisabled : MonoBehaviour { }
