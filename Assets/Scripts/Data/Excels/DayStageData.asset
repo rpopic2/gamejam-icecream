@@ -15,26 +15,31 @@ MonoBehaviour:
   DayStageDatas:
   - StageId: 1
     Day: 1
-    CustomerFull: 10000;10001
-    FlavorFull: Vanilla;Strawberry;Chocolate
-    ToppingFull: 
+    ConePool: BasicCone;WafleCone
+    FlavorPool: Vanilla;Strawberry;Chocolate
+    ToppingPool: 
+    MaxToppingNum: 0
   - StageId: 1
     Day: 2
-    CustomerFull: 10000;10001
-    FlavorFull: Vanilla;Strawberry;Chocolate
-    ToppingFull: 
+    ConePool: BasicCone;WafleCone;Crepe
+    FlavorPool: Vanilla;Strawberry;Chocolate;Grape
+    ToppingPool: Sprinkles
+    MaxToppingNum: 1
   - StageId: 1
     Day: 3
-    CustomerFull: 10000;10001
-    FlavorFull: Vanilla;Strawberry;Chocolate
-    ToppingFull: 
+    ConePool: BasicCone;WafleCone;Crepe
+    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco
+    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick
+    MaxToppingNum: 2
   - StageId: 1
     Day: 4
-    CustomerFull: 10000;10001
-    FlavorFull: Vanilla;Strawberry;Chocolate
-    ToppingFull: 
+    ConePool: BasicCone;WafleCone;Crepe
+    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
+    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
+    MaxToppingNum: 3
   - StageId: 1
     Day: 5
-    CustomerFull: 10000;10001
-    FlavorFull: Vanilla;Strawberry;Chocolate
-    ToppingFull: 
+    ConePool: BasicCone;WafleCone;Crepe
+    FlavorPool: Vanilla;Strawberry;Chocolate;Grape;MintChoco;RainbowSherbet
+    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
+    MaxToppingNum: 3

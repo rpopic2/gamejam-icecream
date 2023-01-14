@@ -5,42 +5,41 @@ using System.Linq;
 [Serializable]
 public class CustomerEntity
 {
-    // 손님 유일 값
-    public long UniqueId;
-    // 원하는 아이스크림
-    public long IceCreamId;
-    // 시나리오 스토리
-    public long ScenarioId;
-    // 손님 이름
-    public string Name;
+    public BodyType BodyTpe;
+    public string SkinPool;
+    public string HairPool;
+    public string FacePool;
+    public string ClothesPool;
 }
 
-public class Customer
+public class CustomerParse
 {
-    public long UniqueId { get; private set; }
-    public string Name { get; private set; }
-    public long IceCreamId { get; private set; }
-    public List<Scenario> ScenarioList { get; private set; }
+    public BodyType BodyTpe;
+    public List<BodyBaseType> SkinList = new List<BodyBaseType>();
+    public List<BodyBaseType> HairList = new List<BodyBaseType>();
+    public List<BodyBaseType> FaceList = new List<BodyBaseType>();
+    public List<BodyBaseType> ClothesList = new List<BodyBaseType>();
 
-    public Customer(long uniqueId, string name, long iceCreamId, IEnumerable<ScenarioEntity> scenarioEntity)
+    public CustomerParse(CustomerEntity data)
     {
-        UniqueId = uniqueId;
-        Name = name;
-        IceCreamId = iceCreamId;
+        BodyTpe = data.BodyTpe;
 
-        ScenarioList = new List<Scenario>();
-        if (scenarioEntity != null && scenarioEntity.Any())
+        if (!String.IsNullOrEmpty(data.SkinPool))
         {
-            foreach (var scenario in scenarioEntity)
-            {
-                ScenarioList.Add(
-                    new Scenario(
-                        scenario.GroupId,
-                        scenario.Order,
-                        scenario.NeedScore,
-                        scenario.CommunicationType,
-                        scenario.ScenarioScript));
-            }
+            data.SkinPool.Split(';').ToList().ForEach(e => SkinList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+        }
+        if (!String.IsNullOrEmpty(data.HairPool))
+        {
+            data.HairPool.Split(';').ToList().ForEach(e => HairList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+        }
+        if (!String.IsNullOrEmpty(data.FacePool))
+        {
+            data.FacePool.Split(';').ToList().ForEach(e => FaceList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
+        }
+        if (!String.IsNullOrEmpty(data.ClothesPool))
+        {
+            data.ClothesPool.Split(';').ToList().ForEach(e => ClothesList.Add((BodyBaseType)Enum.Parse(typeof(BodyBaseType), e)));
         }
     }
 }
+

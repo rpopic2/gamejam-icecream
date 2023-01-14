@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-// Data : 엑셀에서 받아온 데이터
-// EntityDict : 가공하지 않은 데이터
-// DataDict : 사용 가능한 데이터
+/// <summary>
+/// 판매할 때 사용할 데이터들
+/// 손님, 아이스크림, 주문
+/// </summary>
 public class InGameData : DataBase 
 {
     [SerializeField] private CustomerData CustomerData;
-    [SerializeField] private ScenarioData ScenarioData;
-    [SerializeField] private DayStageData DayStageData;
-    [SerializeField] private IceCreamData IceCreamData;
+    [SerializeField] private CustomerTypeData CustomerTypeData;
 
-    // Key : Customer UniqueId
-    private Dictionary<long, CustomerEntity> CustomerEntityDict = new Dictionary<long, CustomerEntity>();
+    [SerializeField] private ConeData ConeData;
+    [SerializeField] private FlavorData FlavorData;
+    [SerializeField] private ToppingData ToppingData;
 
-    // Key : Scenario GroupId
-    private Dictionary<long, List<ScenarioEntity>> ScenarioEntityDict = new Dictionary<long, List<ScenarioEntity>>();
+    [SerializeField] private OrderData OrderData;
+    [SerializeField] private ReactionData ReactionData;
 
-    // Key : IceCream UniqueId
-    private Dictionary<long, IceCreamEntity> IceCreamEntityDict = new Dictionary<long, IceCreamEntity>();
+    // Row Data
+    private Dictionary<BodyType, CustomerParse> CustomerEntityDict = new Dictionary<BodyType, CustomerParse>();
+    private List<CustomerTypeEntity> CustomerTypeEntityList = new List<CustomerTypeEntity>();
 
+    private List<ConeEntity> ConeEntityList = new List<ConeEntity>();
+    private List<FlavorEntity> FlavorEntityList = new List<FlavorEntity>();
+    private List<ToppingEntity> ToppingEntityList = new List<ToppingEntity>();
 
-    public Dictionary<long, Customer> CustomerDataDict = new Dictionary<long, Customer>();
-    public Dictionary<long, IceCream> IceCreamDataDict = new Dictionary<long, IceCream>();
+    private List<OrderEntity> OrderEntityList = new List<OrderEntity>();
+    private List<ReactionEntity> ReactionEntityList = new List<ReactionEntity>();
 
+    // Processed Data
+    public List<Customer> CustomerDataList = new List<Customer>();
+    public List<IceCream> IceCreamDataList = new List<IceCream>();
+    public List<Order> OrderDataList = new List<Order>();
 
 
     public override void LowDataLoad()
@@ -34,76 +42,104 @@ public class InGameData : DataBase
 
         foreach (var data in CustomerData.CustomerDatas)
         {
-            if (!CustomerEntityDict.ContainsKey(data.UniqueId))
+            if (!CustomerEntityDict.ContainsKey(data.BodyTpe))
             {
-                CustomerEntityDict.Add(data.UniqueId, data);
+                CustomerEntityDict.Add(data.BodyTpe, new CustomerParse(data));
             }
             else
             {
-                Console.WriteLine($"CustomerEntityDict Duplicate {data.UniqueId}");
+                Console.WriteLine($"CustomerEntityDict Duplicate {data.BodyTpe}");
             }
         }
 
-        ScenarioEntityDict.Clear();
+        CustomerTypeEntityList.Clear();
 
-        foreach (var data in ScenarioData.ScenarioDatas)
+        foreach (var data in CustomerTypeData.CustomerTypeDatas)
         {
-            if (!ScenarioEntityDict.ContainsKey(data.GroupId))
-            {
-                ScenarioEntityDict.Add(data.GroupId, new List<ScenarioEntity>() { data });
-            }
-            else
-            {
-                ScenarioEntityDict[data.GroupId].Add(data);
-            }
+            CustomerTypeEntityList.Add(data.Clone());
         }
 
-        IceCreamDataDict.Clear();
+        ConeEntityList.Clear();
 
-        foreach (var data in IceCreamData.IceCreamDatas)
+        foreach (var data in ConeData.ConeDatas)
         {
-            if (!IceCreamDataDict.ContainsKey(data.UniqueId))
-            {
-                IceCreamDataDict.Add(data.UniqueId,
-                    new IceCream(
-                        data.UniqueId,
-                        data.Name,
-                        data.Price,
-                        data.ConeType,
-                        data.FlavorType1, data.FlavorType2, data.FlavorType3,
-                        data.ToppingType1, data.ToppingType2, data.ToppingType3));
-            }
-            else
-            {
-                Console.WriteLine($"IceCreamDataDict Duplicate {data.UniqueId}");
-            }
+            ConeEntityList.Add(data.Clone());
+        }
+
+        FlavorEntityList.Clear();
+
+        foreach (var data in FlavorData.FlavorDatas)
+        {
+            FlavorEntityList.Add(data.Clone());
+        }
+
+        ToppingEntityList.Clear();
+
+        foreach (var data in ToppingData.ToppingDatas)
+        {
+            ToppingEntityList.Add(data.Clone());
+        }
+
+        OrderEntityList.Clear();
+
+        foreach (var data in OrderData.OrderDatas)
+        {
+            OrderEntityList.Add(data.Clone());
+        }
+
+        ReactionEntityList.Clear();
+
+        foreach (var data in ReactionData.ReactionDatas)
+        {
+            ReactionEntityList.Add(data.Clone());
         }
     }
 
     public override void ProcessedDataLoad()
     {
-        CustomerDataDict.Clear();
-
-        foreach (var customerEntity in CustomerEntityDict)
+        CustomerDataList.Clear();
         {
-            if (!ScenarioEntityDict.TryGetValue(customerEntity.Key, out var scenarioList))
+            foreach (var entity in CustomerTypeEntityList)
             {
-                Console.WriteLine($"ScenarioEntityDict Not Contain Customer {customerEntity.Key}");
+                if (CustomerEntityDict.TryGetValue(entity.BodyType, out var customerParse))
+                {
+                    customerParse.SkinList.ForEach(skin =>
+                    customerParse.HairList.ForEach(hair =>
+                    customerParse.FaceList.ForEach(face =>
+                    customerParse.ClothesList.ForEach(clothes => CustomerDataList.Add(new Customer 
+                    {
+                        BodyType = entity.BodyType,
+                        Skin = skin,
+                        Hair = hair,
+                        Face = face,
+                        Clothes = clothes,
+                    })))));
+                }
             }
 
-            if (!CustomerDataDict.ContainsKey(customerEntity.Key))
+            Console.WriteLine($"Create Customer Pool : {CustomerDataList.Count}");
+        }
+
+        IceCreamDataList.Clear();
+        {
+            ConeEntityList.ForEach(cone =>
+            FlavorEntityList.ForEach(flavor => IceCreamDataList.Add(new IceCream(cone, flavor))));
+
+            ConeEntityList.ForEach(cone =>
+            FlavorEntityList.ForEach(flavor =>
+            ToppingEntityList.ForEach(topping => IceCreamDataList.Add(new IceCream(cone, flavor, topping)))));
+
+            Console.WriteLine($"Create IceCream Pool : {IceCreamDataList.Count}");
+        }
+
+        OrderDataList.Clear();
+        {
+            foreach (var entity in OrderEntityList)
             {
-                CustomerDataDict.Add(customerEntity.Key, 
-                    new Customer(
-                        customerEntity.Value.UniqueId, 
-                        customerEntity.Value.Name,
-                        customerEntity.Value.IceCreamId,
-                        scenarioList));
+                OrderDataList.Add(new Order(entity));
             }
-            else
-            {
-                Console.WriteLine($"CustomerDataDict Duplicate {customerEntity.Key}");
-            }
+
+            Console.WriteLine($"Create Order List : {OrderDataList.Count}");
         }
     }
 }

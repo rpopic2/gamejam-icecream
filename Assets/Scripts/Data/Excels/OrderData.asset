@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43320be390af9024ab61d2c310f899df, type: 3}
+  m_Name: OrderData
+  m_EditorClassIdentifier: 
+  OrderDatas:
+  - ID: 1
+    OrderType: 1
+    Script: "{0}\uB9DB \uC544\uC774\uC2A4\uD06C\uB9BC \uC8FC\uC138\uC694!"
+  - ID: 2
+    OrderType: 1
+    Script: "\uC74C.. {0}\uB9DB \uC544\uC774\uC2A4\uD06C\uB9BC \uC788\uB098\uC694?"
+  - ID: 3
+    OrderType: 1
+    Script: "{0}\uB9DB!"
+  - ID: 4
+    OrderType: 2
+    Script: "{1} \uC704\uC5D0 {0}\uB9DB \uC544\uC774\uC2A4\uD06C\uB9BC \uC8FC\uC138\uC694."
+  - ID: 5
+    OrderType: 2
+    Script: "{0}\uB9DB \uC8FC\uC138\uC694. \uC544! \uCF58\uC740 {1}\uB85C \uC8FC\uC2DC\uAD6C\uC694."
+  - ID: 6
+    OrderType: 3
+    Script: "{1}\uC5D0 {0} \uC544\uC774\uC2A4\uD06C\uB9BC, \uD1A0\uD551\uC73C\uB85C
+      {2} \uC62C\uB824\uC8FC\uC138\uC694."
+  - ID: 7
+    OrderType: 4
+    Script: "{1}\uC5D0 {0} \uC544\uC774\uC2A4\uD06C\uB9BC, \uD1A0\uD551\uC73C\uB85C
+      {2}, {3} \uC62C\uB824\uC8FC\uC138\uC694."
+  - ID: 8
+    OrderType: 5
+    Script: "{1}\uC5D0 {0} \uC544\uC774\uC2A4\uD06C\uB9BC, \uD1A0\uD551\uC73C\uB85C
+      {2}, {3} \uADF8\uB9AC\uACE0 {4} \uC62C\uB824\uC8FC\uC138\uC694."

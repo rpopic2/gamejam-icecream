@@ -5,47 +5,47 @@ using System.Linq;
 [Serializable]
 public class DayStageEntity
 {
-    // 스테이지 값
     public long StageId;
-    // 진행 날짜
     public long Day;
-    // 등장할 손님
-    public string CustomerFull;
-    // 등장하는 맛
-    public string FlavorFull;
-    // 등장하는 토핑
-    public string ToppingFull;
+    public string ConePool;
+    public string FlavorPool;
+    public string ToppingPool;
+
+    public long MaxToppingNum;
 }
 
 public class DayStage
 {
     public long StageId { get; set; }
     public long Day { get; set; }
-    public List<long> CustomerIds { get; set; }
-    public List<FlavorType> FlavorTypes { get; set; }
-    public List<ToppingType> ToppingTypes { get; set; }
+    public long MaxToppingNum { get; set; }
+    public List<ConeType> ConeTypes { get; set; } = new List<ConeType>();
+    public List<FlavorType> FlavorTypes { get; set; } = new List<FlavorType>();
+    public List<ToppingType> ToppingTypes { get; set; } = new List<ToppingType>();
 
-    public DayStage(long stageId, long day, string customerFull, string flavorFull, string toppingFull)
+    public DayStage(DayStageEntity data)
     {
-        StageId = stageId;
-        Day = day;
+        StageId = data.StageId;
+        Day = data.Day;
+        
+        MaxToppingNum = data.MaxToppingNum;
 
-        CustomerIds = new List<long>();
-        if (!String.IsNullOrEmpty(customerFull))
+
+        if (!String.IsNullOrEmpty(data.ConePool))
         {
-            customerFull.Split(';').ToList().ForEach(e => CustomerIds.Add(long.Parse(e)));
+            data.ConePool.Split(';').ToList().ForEach(e => ConeTypes.Add((ConeType)Enum.Parse(typeof(ConeType), e)));
         }
 
-        FlavorTypes = new List<FlavorType>();
-        if (!String.IsNullOrEmpty(flavorFull))
+        if (!String.IsNullOrEmpty(data.FlavorPool))
         {
-            flavorFull.Split(';').ToList().ForEach(e => FlavorTypes.Add((FlavorType)Enum.Parse(typeof(FlavorType), e)));
+            data.FlavorPool.Split(';').ToList().ForEach(e => FlavorTypes.Add((FlavorType)Enum.Parse(typeof(FlavorType), e)));
         }
 
-        ToppingTypes = new List<ToppingType>();
-        if (!String.IsNullOrEmpty(toppingFull))
+        if (!String.IsNullOrEmpty(data.ToppingPool))
         {
-            toppingFull.Split(';').ToList().ForEach(e => ToppingTypes.Add((ToppingType)Enum.Parse(typeof(ToppingType), e)));
+            data.ToppingPool.Split(';').ToList().ForEach(e => ToppingTypes.Add((ToppingType)Enum.Parse(typeof(ToppingType), e)));
         }
+
+
     }
 }

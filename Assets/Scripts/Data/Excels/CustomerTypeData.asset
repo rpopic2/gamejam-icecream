@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a14988c21e0bf46b2b09a032f9ea54, type: 3}
+  m_Name: CustomerTypeData
+  m_EditorClassIdentifier: 
+  CustomerTypeDatas:
+  - ID: 1
+    BodyType: 0
+    BodyBaseType: 0
+    Described: "\uB0A8\uC131_\uD751\uC778"
+  - ID: 2
+    BodyType: 0
+    BodyBaseType: 0
+    Described: "\uB0A8\uC131_\uBC31\uC778"
+  - ID: 3
+    BodyType: 0
+    BodyBaseType: 0
+    Described: "\uB0A8\uC131_\uB3D9\uC591\uC778"
+  - ID: 4
+    BodyType: 1
+    BodyBaseType: 0
+    Described: "\uC5EC\uC131_\uD751\uC778"
+  - ID: 5
+    BodyType: 1
+    BodyBaseType: 0
+    Described: "\uC5EC\uC131_\uBC31\uC778"
+  - ID: 6
+    BodyType: 1
+    BodyBaseType: 0
+    Described: "\uC5EC\uC131_\uB3D9\uC591\uC778"
+  - ID: 7
+    BodyType: 2
+    BodyBaseType: 0
+    Described: "\uC544\uC774_\uD751\uC778"
+  - ID: 8
+    BodyType: 2
+    BodyBaseType: 0
+    Described: "\uC544\uC774_\uBC31\uC778"
+  - ID: 9
+    BodyType: 2
+    BodyBaseType: 0
+    Described: "\uC544\uC774_\uB3D9\uC591\uC778"
+  - ID: 10
+    BodyType: 0
+    BodyBaseType: 1
+    Described: "\uB0A8\uC131_\uD5E4\uC5B41"
+  - ID: 11
+    BodyType: 0
+    BodyBaseType: 1
+    Described: "\uB0A8\uC131_\uD5E4\uC5B42"
+  - ID: 12
+    BodyType: 0
+    BodyBaseType: 1
+    Described: "\uB0A8\uC131_\uD5E4\uC5B43"
+  - ID: 13
+    BodyType: 1
+    BodyBaseType: 1
+    Described: "\uC5EC\uC131_\uD5E4\uC5B41"
+  - ID: 14
+    BodyType: 1
+    BodyBaseType: 1
+    Described: "\uC5EC\uC131_\uD5E4\uC5B42"
+  - ID: 15
+    BodyType: 1
+    BodyBaseType: 1
+    Described: "\uC5EC\uC131_\uD5E4\uC5B43"
+  - ID: 16
+    BodyType: 2
+    BodyBaseType: 1
+    Described: "\uC544\uC774_\uD5E4\uC5B41"
+  - ID: 17
+    BodyType: 2
+    BodyBaseType: 1
+    Described: "\uC544\uC774_\uD5E4\uC5B42"
+  - ID: 18
+    BodyType: 2
+    BodyBaseType: 1
+    Described: "\uC544\uC774_\uD5E4\uC5B43"
+  - ID: 19
+    BodyType: 0
+    BodyBaseType: 2
+    Described: "\uB0A8\uC131_\uC5BC\uAD741"
+  - ID: 20
+    BodyType: 0
+    BodyBaseType: 2
+    Described: "\uB0A8\uC131_\uC5BC\uAD742"
+  - ID: 21
+    BodyType: 0
+    BodyBaseType: 2
+    Described: "\uB0A8\uC131_\uC5BC\uAD743"
+  - ID: 22
+    BodyType: 1
+    BodyBaseType: 2
+    Described: "\uC5EC\uC131_\uC5BC\uAD741"
+  - ID: 23
+    BodyType: 1
+    BodyBaseType: 2
+    Described: "\uC5EC\uC131_\uC5BC\uAD742"
+  - ID: 24
+    BodyType: 1
+    BodyBaseType: 2
+    Described: "\uC5EC\uC131_\uC5BC\uAD743"
+  - ID: 25
+    BodyType: 2
+    BodyBaseType: 2
+    Described: "\uC544\uC774_\uC5BC\uAD741"
+  - ID: 26
+    BodyType: 2
+    BodyBaseType: 2
+    Described: "\uC544\uC774_\uC5BC\uAD742"
+  - ID: 27
+    BodyType: 2
+    BodyBaseType: 2
+    Described: "\uC544\uC774_\uC5BC\uAD743"
+  - ID: 28
+    BodyType: 0
+    BodyBaseType: 3
+    Described: "\uB0A8\uC131_\uC6371"
+  - ID: 29
+    BodyType: 0
+    BodyBaseType: 3
+    Described: "\uB0A8\uC131_\uC6372"
+  - ID: 30
+    BodyType: 0
+    BodyBaseType: 3
+    Described: "\uB0A8\uC131_\uC6373"
+  - ID: 31
+    BodyType: 1
+    BodyBaseType: 3
+    Described: "\uC5EC\uC131_\uC6371"
+  - ID: 32
+    BodyType: 1
+    BodyBaseType: 3
+    Described: "\uC5EC\uC131_\uC6372"
+  - ID: 33
+    BodyType: 1
+    BodyBaseType: 3
+    Described: "\uC5EC\uC131_\uC6373"
+  - ID: 34
+    BodyType: 2
+    BodyBaseType: 3
+    Described: "\uC544\uC774_\uC6371"
+  - ID: 35
+    BodyType: 2
+    BodyBaseType: 3
+    Described: "\uC544\uC774_\uC6372"
+  - ID: 36
+    BodyType: 2
+    BodyBaseType: 3
+    Described: "\uC544\uC774_\uC6373"

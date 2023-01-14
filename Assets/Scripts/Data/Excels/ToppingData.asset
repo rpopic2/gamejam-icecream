@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba7327f74e49a540aae2e31033d17cd, type: 3}
+  m_Name: ToppingData
+  m_EditorClassIdentifier: 
+  ToppingDatas:
+  - NameString: "\uC2A4\uD504\uB9C1\uD074"
+    SalePrice: 30
+    PurchasePrice: 10
+    Icon: Icon_Springkles
+    ToppingType: 1
+  - NameString: "\uC544\uBAAC\uB4DC\uB791 \uCD08\uCF54\uBCFC"
+    SalePrice: 50
+    PurchasePrice: 10
+    Icon: Icon_AmondChocoball
+    ToppingType: 2
+  - NameString: "\uC624\uB808\uC624"
+    SalePrice: 30
+    PurchasePrice: 10
+    Icon: Icon_Oreo
+    ToppingType: 3
+  - NameString: "\uB9C9\uB300\uACFC\uC790"
+    SalePrice: 30
+    PurchasePrice: 10
+    Icon: Icon_Stick
+    ToppingType: 4
+  - NameString: "\uCCB4\uB9AC"
+    SalePrice: 20
+    PurchasePrice: 10
+    Icon: Icon_Cherry
+    ToppingType: 5
+  - NameString: "\uB538\uAE30\uD1A0\uD551"
+    SalePrice: 100
+    PurchasePrice: 10
+    Icon: Icon_SlicedStrawberry
+    ToppingType: 6

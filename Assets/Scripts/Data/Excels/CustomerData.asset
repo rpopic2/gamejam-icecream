@@ -13,19 +13,18 @@ MonoBehaviour:
   m_Name: CustomerData
   m_EditorClassIdentifier: 
   CustomerDatas:
-  - UniqueId: 10000
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: "\uD0A4\uAC00 \uD070 \uC544\uC800\uC528"
-  - UniqueId: 10001
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: "\uB540\uC744 \uBED8\uBED8 \uD559\uC0DD"
-  - UniqueId: 10002
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: "\uC5B4\uC9C0\uB7EC\uC6CC\uC694 \uC544\uC774"
-  - UniqueId: 10003
-    IceCreamId: 0
-    ScenarioId: 0
-    Name: "\uD14C\uC2A4\uD2B8\uCF00\uC774\uC2A4"
+  - BodyTpe: 0
+    SkinPool: 1;2;3
+    HairPool: 10;11;12
+    FacePool: 19;20;21
+    ClothesPool: 28;29;30
+  - BodyTpe: 1
+    SkinPool: 4;5;6
+    HairPool: 13;14;15
+    FacePool: 22;23;24
+    ClothesPool: 31;32;33
+  - BodyTpe: 2
+    SkinPool: 7;8;9
+    HairPool: 16;17;18
+    FacePool: 25;26;27
+    ClothesPool: 34;35;36
