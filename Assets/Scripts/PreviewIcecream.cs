@@ -20,8 +20,14 @@ namespace Icecream
 public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private List<Sprite> _coneSprites;
+    [SerializeField] private List<Sprite> _iceSprites;
+    [SerializeField] private List<Sprite> _iceCrapeSprites;
+    [SerializeField] private List<Sprite> _toppingSprites;
+    [SerializeField] private List<Transform> _toppingPrefabs;
     public static PreviewIcecream Instance;
     [SerializeField] Image _previewImage;
+    [SerializeField] Image _iceImage;
+    [SerializeField] Image _toppingImage;
     [SerializeField] Button _submitButton;
     [SerializeField] private UICustomer UICustomer;
     public static Player Player = new Player(); // ÀÓ½Ã·Î ¹Ù·Î ÇÒ´ç
@@ -30,6 +36,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public Task<bool> UserSubmit { get; private set; }
     [SerializeField] private GameObject _drumParent;
     public static GameObjectDict<FlavorSelection> _drums;
+    private Transform _pLastTopping;
     private void Awake()
     {
         Instance = this;
@@ -57,7 +64,12 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         _icecream = default;
         _previewImage.gameObject.SetActive(false);
-        _previewImage.color = Color.white;
+        _iceImage.gameObject.SetActive(false);
+        if (_pLastTopping is not null)
+        {
+            Destroy(_pLastTopping);
+            _pLastTopping = null;
+        }
 
         Player.SetCustomer();
         Player.SetOrder();
@@ -72,12 +84,18 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void SetFlavor(int index)
     {
         _icecream.flavor = index + 1;
-        Debug.Log(_icecream.flavor);
+        _iceImage.gameObject.SetActive(true);
+        if (_icecream.cone == 3) {
+            _iceImage.sprite = _iceCrapeSprites[index];
+        }
+        else _iceImage.sprite = _iceSprites[index];
     }
     public void SetTopping(int index)
     {
         //TODO implement this
         _icecream.topping.Add(index + 1);
+        //_toppingImage.sprite = _toppingSprites[index];
+        _pLastTopping = Instantiate(_toppingPrefabs[index], transform);
     }
     public void Submit()
     {
