@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,5 +36,11 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerExit(PointerEventData eventData)
     {
         IcecreamScoop.Instance.RestoreSize();
+    }
+
+    public void SetTopping(int index)
+    {
+        //TODO implement this
+        print(index);
     }
 }
