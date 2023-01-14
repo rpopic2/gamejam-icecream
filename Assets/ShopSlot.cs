@@ -13,40 +13,69 @@ public class ShopSlot : MonoBehaviour
     [SerializeField] private TMP_Text m_PriceText;
 
     private ItemType m_ItemType;
-    
-    
+    public ItemType ItemType => m_ItemType;
+
     private bool m_isSoldOut = false;
-    private string temp_Name;
+    
+    private string m_NameString;
+    private int m_PurchasePrice;
+    private string m_IconString;
+
+    public int PurchasePrice => m_PurchasePrice;
     
     //raw data
     private ConeEntity m_ConeEntity = null;
     private FlavorEntity m_FlavorEntity = null;
     private ToppingEntity m_toppingEntity = null;
 
-    //public IceCreamEntity IceCreamData { get; set; }
+    public ConeEntity ConeEntity => m_ConeEntity;
+    public FlavorEntity FlavorEntity => m_FlavorEntity;
+    public ToppingEntity ToppingEntity => m_toppingEntity;
+    
 
-    public void SetShopSlot(ItemType itemType)
+    public void SetShopSlot(ConeType cone)
     {
-        switch (itemType)
-        {
-            case ItemType.Cone:
-                break;
-            case ItemType.Flavor:
-                break;
-            case ItemType.Topping:
-                break;
-                
-        }
+        m_ItemType = ItemType.Cone;
+        m_ConeEntity = DataManager.Instance.InGameData.GetConeEntityFromConeType(cone);
+
+        m_NameString = m_ConeEntity.NameString;
+        m_PurchasePrice = (int)m_ConeEntity.PurchasePrice;
+        m_IconString = m_ConeEntity.Icon;
+
+        SetSlotTextAndIcon();
+    }
+    
+    public void SetShopSlot(FlavorType flavor)
+    {
+        m_ItemType = ItemType.Flavor;
+        m_FlavorEntity = DataManager.Instance.InGameData.GetFlavorEntityFromFlavorType(flavor);
+
+        m_NameString = m_FlavorEntity.NameString;
+        m_PurchasePrice = (int)m_FlavorEntity.PurchasePrice;
+        m_IconString = m_FlavorEntity.Icon;
+
+        SetSlotTextAndIcon();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetShopSlot(ToppingType topping)
     {
-        GetComponent<Button>().onClick.AddListener((() => ButtonClickAction(temp_Name)));
+        m_ItemType = ItemType.Topping;
+        m_toppingEntity = DataManager.Instance.InGameData.GetToppingEntityFromToppingType(topping);
+        
+        m_NameString = m_toppingEntity.NameString;
+        m_PurchasePrice = (int)m_toppingEntity.PurchasePrice;
+        m_IconString = m_toppingEntity.Icon;
+
+        SetSlotTextAndIcon();
     }
 
-    void ButtonClickAction(string itemName)
+    public void SetSlotTextAndIcon()
     {
+        m_NameText.text = m_NameString;
+        m_PriceText.text = m_PurchasePrice.ToString();
+        
+        //TODO
+        // Change Icon Img
         
     }
 }
