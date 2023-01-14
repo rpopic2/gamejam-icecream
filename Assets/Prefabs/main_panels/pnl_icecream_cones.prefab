@@ -54,7 +54,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8509311904752772778}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -130,16 +130,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: 63
+    m_Right: 63
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 122
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 81.38
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -150,9 +150,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8509311905385116878}
     m_Modifications:
+    - target: {fileID: 1551275072645167657, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f04da1e5a852e4199aba098f2e61275b, type: 3}
     - target: {fileID: 1712740071550710816, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Name
-      value: elem_cone_holder (2)
+      value: btn_cone_2
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Pivot.x
@@ -184,11 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -252,9 +256,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8509311905385116878}
     m_Modifications:
+    - target: {fileID: 1551275072645167657, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e908be63821d43448b339a88a34d220, type: 3}
     - target: {fileID: 1712740071550710816, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Name
-      value: elem_cone_holder (1)
+      value: btn_cone_1
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Pivot.x
@@ -286,11 +294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -354,9 +362,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8509311905385116878}
     m_Modifications:
+    - target: {fileID: 1551275072645167657, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90655bf623f5746a18cfad8d322825cd, type: 3}
     - target: {fileID: 1712740071550710816, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Name
-      value: elem_cone_holder
+      value: btn_cone_0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_Pivot.x
@@ -388,11 +400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443319271695484257, guid: 337877bc28815476ea9f752baf21e9bb, type: 3}
       propertyPath: m_LocalPosition.x
