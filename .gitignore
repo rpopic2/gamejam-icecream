@@ -72,3 +72,27 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+*.xml
+Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml
+Assets/Scripts/Data/Excels/CustomerData.asset
+Assets/Scripts/Data/Excels/CustomerTypeData.xlsx.meta
+Assets/Scripts/Data/Excels/DayStageData.asset
+Assets/Scripts/Data/Excels/IceCreamData.asset
+Assets/Scripts/Data/Excels/OrderData.xlsx.meta
+Assets/Scripts/Data/Excels/ReactionData.xlsx.meta
+Assets/Scripts/Data/Excels/ScenarioData.xlsx.meta
+Assets/Scripts/Data/Excels/~$CustomerData.xlsx.meta
+Assets/Scripts/Data/Excels/~$DayStageData.xlsx.meta
+Assets/Scripts/Data/Excels/~$IceCreamData.xlsx.meta
+Assets/Scripts/Data/Excels/~$ScenarioData.xlsx.meta
+Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml
+Assets/Scripts/Data/Excels/~$ScenarioData.xlsx.meta
+Assets/Scripts/Data/Excels/~$IceCreamData.xlsx.meta
+Assets/Scripts/Data/Excels/~$DayStageData.xlsx.meta
+Assets/Scripts/Data/Excels/~$CustomerData.xlsx.meta
+Assets/Scripts/Data/Excels/ScenarioData.xlsx.meta
+Assets/Scripts/Data/Excels/IceCreamData.asset
+Assets/Scripts/Data/Excels/DayStageData.asset
+Assets/Scripts/Data/Excels/CustomerData.asset
+Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml
+Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml

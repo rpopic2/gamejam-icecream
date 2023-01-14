@@ -11,6 +11,7 @@
     <setting file="file://$PROJECT_DIR$/Data/Entity/ScenarioEntity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data/ExcelAsset/CustomerData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DataManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Timer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -37,7 +38,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673660895336</updated>
-      <workItem from="1673660899815" duration="856000" />
+      <workItem from="1673660899815" duration="1134000" />
     </task>
     <servers />
   </component>
