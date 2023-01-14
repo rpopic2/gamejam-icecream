@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 
 public class DataManager : MonoSingleton<DataManager>
 {
@@ -14,7 +15,7 @@ public class DataManager : MonoSingleton<DataManager>
     private const int m_MaxNum = 10;
     public int MaxNum => m_MaxNum;
     
-    private void Start()
+    private void Awake()
     {
         InGameData.LowDataLoad();
         StoryFlowData.LowDataLoad();

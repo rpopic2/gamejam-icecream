@@ -5,6 +5,11 @@ public class DontDestroyObject : MonoBehaviour
     public static bool IsLoaded { get; private set; }
     static DontDestroyObject() {
     }
+    public static void LoadDontDestroy() {
+        if (IsLoaded) return;
+        IsLoaded = true;
+        SceneLoader.LoadAdditive(SceneName.DontDestroy);
+    }
     private DontDestroyObject _instance;
     public void Awake()
     {

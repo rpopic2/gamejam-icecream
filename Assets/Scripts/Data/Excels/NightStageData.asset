@@ -24,14 +24,14 @@ MonoBehaviour:
     Day: 2
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Grape;MintChoco;RainbowSherbet
-    ToppingPool: Sprinkles
+    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
     MoveCost: 1000
     Honor: 0
   - StageId: 1
     Day: 3
     ConePool: BasicCone;WafleCone;Crepe
     FlavorPool: Grape;MintChoco;RainbowSherbet
-    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick
+    ToppingPool: Sprinkles;AmondeChoco;Oreo;Stick;Cherry;SlicedStrawberry
     MoveCost: 1000
     Honor: 0
   - StageId: 1

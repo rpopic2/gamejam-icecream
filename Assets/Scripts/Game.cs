@@ -19,8 +19,7 @@ public class Game : MonoBehaviour
         s_instance = this;
         if (s_windows is null) s_windows = new(_canvas);
         s_resultWindow = s_windows?["win_result"] ?? throw new Exception("cannot find result window");
-        //if (!DontDestroyObject.IsLoaded) 
-            SceneLoader.LoadAdditive(SceneName.DontDestroy);
+        DontDestroyObject.LoadDontDestroy();
     }
     private void Start()
     {
