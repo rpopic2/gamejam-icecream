@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,14 +22,32 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     [SerializeField] Image _previewImage;
     [SerializeField] Button _submitButton;
     private IcecreamData _icecream;
+    public Task<bool> UserSubmit => _userSubmit;
+    private TaskCompletionSource<bool> tcs;
+    private Task<bool> _userSubmit;
     private void Awake()
     {
         Instance = this;
         _submitButton.onClick.AddListener(Submit);
     }
-    private void ClearImage()
+    public async void StartLoop()
     {
-        //TODO clear image
+        do {
+            Init();
+            tcs = new();
+            _userSubmit = tcs.Task;
+            await CustomerTweener.Instance.CustomerIn();
+            Dialog.Instance.Print("I would like a chocolate icecream with a cherry on the top!");
+            await _userSubmit;
+            await Dialog.Instance.WaitDialogAsync();
+            await CustomerTweener.Instance.CustomerOut();
+        } while (Game.IsDay);
+    }
+    private void Init()
+    {
+        _icecream = default;
+        _previewImage.gameObject.SetActive(false);
+        _previewImage.color = Color.white;
     }
     public void SetCone(int index)
     {
@@ -50,9 +69,9 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         var (score, talk) = IcecreamJudge.Evaluate(_icecream);
         print($"you get {score} score");
-        Dialog.Instance.Talk(talk);
+        Dialog.Instance.Print(talk);
         MoneyBalance.Instance.Balance += score;
-        ClearImage();
+        tcs.SetResult(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)
