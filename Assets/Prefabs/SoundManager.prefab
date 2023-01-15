@@ -128,6 +128,134 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1437395690267191451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563122825783892879}
+  - component: {fileID: 9009793601029083585}
+  m_Layer: 0
+  m_Name: SFXPlayer_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563122825783892879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437395690267191451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6737581429330755475}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &9009793601029083585
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437395690267191451}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4223120828474654839
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +430,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -394,6 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6737581429330755475}
   - component: {fileID: 6316188299498507343}
+  - component: {fileID: 2034114876}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -416,6 +545,7 @@ Transform:
   - {fileID: 9129677392158315792}
   - {fileID: 7004042810850334827}
   - {fileID: 3625520322275822086}
+  - {fileID: 563122825783892879}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,9 +564,52 @@ MonoBehaviour:
   BGMPlayer: {fileID: 5200018581835565166}
   SFX1Player: {fileID: 3634865932927227855}
   SFX2Player: {fileID: 4128876915677691485}
+  SFX3Player: {fileID: 9009793601029083585}
   list_SFX:
-  - name: 
-    clip: {fileID: 0}
+  - name: SFX_BtnClick
+    clip: {fileID: 8300000, guid: ac9d73dc256163d4ba44e897f9f7a695, type: 3}
+  - name: SFX_Talk
+    clip: {fileID: 8300000, guid: c4dc437383adeef4ea10a1930063525d, type: 3}
+  - name: SFX_GetCoin
+    clip: {fileID: 8300000, guid: f6efebda852deeb4b947107a6a624ac4, type: 3}
+  - name: SFX_UseCoin
+    clip: {fileID: 8300000, guid: 32ecf4075daea6c4d9fc718bf13bc47e, type: 3}
+  - name: SFX_CalcDay
+    clip: {fileID: 8300000, guid: 73cacc104f345974f8d5286ebfd8c1b3, type: 3}
+  - name: SFX_TimeOver
+    clip: {fileID: 8300000, guid: f6542a56f4c92f641aacca1dceee730f, type: 3}
+  - name: SFX_NextDayStart
+    clip: {fileID: 8300000, guid: 99ec580c79e4cb8419ade3cbb798a51e, type: 3}
+  - name: SFX_GameOver
+    clip: {fileID: 8300000, guid: f72e5965ffbbfb44799c8e53ae05c12e, type: 3}
+  - name: SFX_GameWin
+    clip: {fileID: 8300000, guid: 39bef4fe5690ad14baba4d0c109e9814, type: 3}
+  - name: SFX_IcecreamInteraction
+    clip: {fileID: 8300000, guid: cd4dc52625d03cf41b4d7242aa5e3790, type: 3}
+  - name: SFX_GetIcecream
+    clip: {fileID: 8300000, guid: 7d1c9935bd560b340bd1347f7d3497e2, type: 3}
+  - name: SFX_SetIcecream
+    clip: {fileID: 8300000, guid: d181cd4a5dfa16d4b871ffefdb3177e4, type: 3}
   list_BGM:
-  - name: 
-    clip: {fileID: 0}
+  - name: BGM_DayTime
+    clip: {fileID: 8300000, guid: 81e26f6f839231447b87bf6ed3191ded, type: 3}
+  - name: BGM_NightTime
+    clip: {fileID: 8300000, guid: c2f018304c8748f44870d4c94d0496ba, type: 3}
+  - name: BGM_Title
+    clip: {fileID: 8300000, guid: 4c4745ef8abb34249bec05fe75916b6e, type: 3}
+  - name: BGM_Success
+    clip: {fileID: 8300000, guid: e4aabcdbd0468994590e7f692dcc57b3, type: 3}
+  - name: BGM_Fail
+    clip: {fileID: 8300000, guid: 0b41f819b24f5e34bae9a7acbf26e08a, type: 3}
+--- !u!114 &2034114876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209687807424193917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b69fc04c7e44d68af2af01b039ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
