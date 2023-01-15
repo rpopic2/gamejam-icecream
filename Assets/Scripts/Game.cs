@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        PlayerDataManager.Instance.PlayerMoney = 1000;
         MenuBarCtl.Instance.EnableBar();
         if (_isGameRunning) return;
         _isGameRunning = true;

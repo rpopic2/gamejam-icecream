@@ -13,7 +13,7 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     [SerializeField] private List<ConeType> m_StartingConeList;
     [SerializeField] private List<FlavorType> m_StartingFlavorList;
     [SerializeField] private List<ToppingType> m_StartingToppingList;
-    public int PlayerMoney { get; set; } = 10000;
+    public int PlayerMoney { get; set; }
     public int PlayerHonor { get; set; } = 0;
 
     public List<ConeInventory> ConeInvenList = new List<ConeInventory>();
