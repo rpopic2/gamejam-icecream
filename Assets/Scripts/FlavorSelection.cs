@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Rpopic.Window;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -33,6 +34,9 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void OnPointerClick(PointerEventData eventData) { }
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (Game.IsDay && PlayerDataManager.Instance.GetItemNumberFromType(m_flavorType) == 0) {
+                AlertBox.Instance.AlertAsync("아이템이 없습니다!");
+        }
         if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor && PlayerDataManager.Instance.GetItemNumberFromType(m_flavorType) != 0 && !m_IsSkillCheck)
         {
             SkillCheck.Instance.StartSkillCheck();
