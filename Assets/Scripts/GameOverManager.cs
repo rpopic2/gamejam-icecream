@@ -22,9 +22,9 @@ public class GameOverManager : MonoSingleton<GameOverManager>
         SoundManager.Instance.StopBGM();
 
         if (gameOverType == GameOverType.Success)
-            SoundManager.Instance.PlaySFX("SFX_GameWin");
+            SoundManager.Instance.PlayBGM("BGM_Success");
         else
-            SoundManager.Instance.PlaySFX("SFX_GameOver");
+            SoundManager.Instance.PlayBGM("BGM_Fail");
 
         image_illust.sprite = illustDatas[(int)gameOverType];
         image_illust.gameObject.SetActive(true);
