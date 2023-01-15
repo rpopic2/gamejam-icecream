@@ -41,6 +41,7 @@ public class Game : MonoBehaviour
     }
     private static async Task Day()
     {
+        PreviewIcecream.dayBalance = 0;
         IsDay = true;
         DayCounter.Instance.IncrementDay();
         PreviewIcecream.Instance.StartLoop();

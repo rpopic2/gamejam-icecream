@@ -309,6 +309,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &599678696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3274326010591401230, guid: 75674edf31ebc4edb8f53410a545e026, type: 3}
+  m_PrefabInstance: {fileID: 3729017514844346464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &628872659 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4762513523430636306, guid: cc274307d790345d38465a35c37406a2, type: 3}
@@ -2487,6 +2498,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -218.20607
       objectReference: {fileID: 0}
+    - target: {fileID: 5432052671659327346, guid: 75674edf31ebc4edb8f53410a545e026, type: 3}
+      propertyPath: _sumText
+      value: 
+      objectReference: {fileID: 599678696}
     - target: {fileID: 6047807764776261609, guid: 75674edf31ebc4edb8f53410a545e026, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

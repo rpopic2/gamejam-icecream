@@ -18,6 +18,6 @@ public class ResultWindow : Window
                 .GetComponent<SoldItemTextObject>();
             sold.Init("Chocolate Icecream", 20);
         }
-        _sumText.text = (20 * 4).ToString();
+        _sumText.text = PreviewIcecream.dayBalance.ToString();
     }
 }

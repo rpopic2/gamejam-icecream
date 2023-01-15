@@ -37,6 +37,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     [SerializeField] private GameObject _drumParent;
     public static GameObjectDict<FlavorSelection> _drums;
     private Transform _pLastTopping;
+    public static int dayBalance = 0;
     private void Awake()
     {
         Instance = this;
@@ -109,6 +110,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         print($"you get {score} score");
         Dialog.Instance.Print(talk);
         MoneyBalance.Instance.Balance += score;
+        dayBalance += score;
         _tcs.SetResult(true);
     }
 

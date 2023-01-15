@@ -1,3 +1,4 @@
+using UnityEngine;
 public static class IcecreamJudge
 {
     public static (int, string) Evaluate(Icecream.IcecreamData _data, Order _order)
@@ -55,6 +56,6 @@ public static class IcecreamJudge
         UnityEngine.Debug.Log($"totalPrice : {_order.IceCream.TotalSalePrice}, FinalPrice : {_order.IceCream.TotalSalePrice * reaction.Reward}");
 #endif
 
-        return ((int)(_order.IceCream.TotalSalePrice * reaction.Reward), reaction.Script);
+        return ((int)Mathf.Ceil(_order.IceCream.TotalSalePrice * reaction.Reward), reaction.Script);
     }
 }
