@@ -38,6 +38,9 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public static GameObjectDict<FlavorSelection> _drums;
     private Transform _pLastTopping;
     public static int dayBalance = 0;
+
+    public int NowToppingCount = 0;
+    
     private void Awake()
     {
         Instance = this;
@@ -54,6 +57,10 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
             await CustomerTweener.Instance.CustomerIn();
             Dialog.Instance.Print(Player.Order.OrderScriptParse());
             await UserSubmit;
+
+            NowToppingCount = 0;
+            Game.s_instance.NowSelectItemType = ItemType.Cone;
+            
             await Dialog.Instance.WaitDialogAsync();
             await CustomerTweener.Instance.CustomerOut();
             foreach (var drum in _drums) {
@@ -82,7 +89,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         //TODO implement this thang
         _icecream.cone = index + 1;
         _previewImage.transform.position = orig;
-        if (index == 1) {
+        if (index == 0) {
             _previewImage.transform.Translate(Vector3.up * 50);
         }
         _previewImage.gameObject.SetActive(true);
@@ -107,11 +114,18 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     {
         //TODO implement this
         _icecream.topping.Add(index + 1);
+        NowToppingCount += 1;
         //_toppingImage.sprite = _toppingSprites[index];
         _pLastTopping = Instantiate(_toppingPrefabs[index], transform);
         
-        Game.s_instance.NowSelectItemType = ItemType.Cone;
         PlayerDataManager.Instance.UseItemFromType(topping);
+        
+        if(NowToppingCount == 3)
+        {
+            Game.s_instance.NowSelectItemType = ItemType.None;
+        }
+        
+        
     }
     public void Submit()
     {
@@ -125,7 +139,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor)
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor && PlayerDataManager.Instance.GetItemNumberFromType(IcecreamScoop.Instance.FlavorType) != 0)
         {
             IcecreamScoop.Instance.Clear();
             SetFlavor(IcecreamScoop.Instance.flavorIdx, IcecreamScoop.Instance.FlavorType);

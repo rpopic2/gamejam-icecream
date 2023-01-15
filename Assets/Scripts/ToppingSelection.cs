@@ -7,7 +7,7 @@ public class ToppingSelection : ConeSelection
 
     protected override void SelectCone()
     {
-        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Topping)
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Topping && PlayerDataManager.Instance.GetItemNumberFromType(m_ToppingType) != 0) // && PlayerDataManager.Instance.GetItemNumberFromType(m_ToppingType) != 0)
         {
             PreviewIcecream.Instance.SetTopping(_index, m_ToppingType);
         }

@@ -11,6 +11,13 @@ public class IcecreamScoop : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void SetIcereamData(int _flavor, FlavorType flavor)
+    {
+        flavorIdx = _flavor;
+        FlavorType = flavor;
+    }
+    
     public void Scoop(int _flavor, FlavorType flavor)
     {
         flavorIdx = _flavor;

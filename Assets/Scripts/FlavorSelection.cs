@@ -33,11 +33,15 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void OnPointerClick(PointerEventData eventData) { }
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor && !m_IsSkillCheck)
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor && PlayerDataManager.Instance.GetItemNumberFromType(m_flavorType) != 0 && !m_IsSkillCheck)
         {
             SkillCheck.Instance.StartSkillCheck();
             SkillCheck.Instance.SnapPosition(transform);
             m_IsSkillCheck = true;
+        }
+        else
+        {
+            IcecreamScoop.Instance.SetIcereamData(_index, m_flavorType);
         }
     }
     public void OnPointerUp(PointerEventData eventData)

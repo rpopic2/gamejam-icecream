@@ -63,7 +63,8 @@ public enum ItemType
 {
     Cone,
     Flavor,
-    Topping
+    Topping,
+    None
 }
 
 public enum GameOverType

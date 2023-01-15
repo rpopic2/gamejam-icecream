@@ -81,24 +81,24 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     {
         if(ConeInvenList.Find(x => x.ConeType == cone).IsMoreThanOne())
             ConeInvenList.Find(x => x.ConeType == cone).UseItem();
-        
-        Debug.Log("Item is empty");
+        else
+            Debug.Log("Item is empty");
     }
     
     public void UseItemFromType(FlavorType flavor)
     {
         if(FlavorInvenList.Find(x => x.FlavorType == flavor).IsMoreThanOne())
             FlavorInvenList.Find(x => x.FlavorType == flavor).UseItem();
-        
-        Debug.Log("Item is empty");
+        else
+            Debug.Log("Item is empty");
     }
     
     public void UseItemFromType(ToppingType topping)
     {
         if(ToppingInvenList.Find(x => x.ToppingType == topping).IsMoreThanOne())
             ToppingInvenList.Find(x => x.ToppingType == topping).UseItem();
-        
-        Debug.Log("Item is empty");
+        else
+            Debug.Log("Item is empty");
     }
 
     public void UpdateMoneyText()

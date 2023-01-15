@@ -17,7 +17,7 @@ public class ConeSelection : MonoBehaviour
 
     protected virtual void SelectCone()
     {
-        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Cone)
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Cone && PlayerDataManager.Instance.GetItemNumberFromType(m_ConeType) != 0)
         {
             PreviewIcecream.Instance.SetCone(_index, m_ConeType) ;
         }
