@@ -8,6 +8,7 @@ public class ResultWindow : Window
     [SerializeField] private Transform _itemsParent;
     [SerializeField] private TMP_Text _sumText;
 
+    int yesterdayMoney = 0;
     protected override void Awake()
     {
         base.Awake();
@@ -18,6 +19,13 @@ public class ResultWindow : Window
                 .GetComponent<SoldItemTextObject>();
             sold.Init("Chocolate Icecream", 20);
         }
+        onOpen += OnOpen;
         _sumText.text = PreviewIcecream.dayBalance.ToString();
+    }
+    void OnOpen() 
+    {
+        var money = PlayerDataManager.Instance.PlayerMoney ;
+        _sumText.text = $"{money - yesterdayMoney}";
+        yesterdayMoney = money;
     }
 }
