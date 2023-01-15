@@ -36,7 +36,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public Task<bool> UserSubmit { get; private set; }
     [SerializeField] private GameObject _drumParent;
     public static GameObjectDict<FlavorSelection> _drums;
-    private Transform _pLastTopping;
+    List<Transform> _toppings = new();
     public static int dayBalance = 0;
 
     public int NowToppingCount = 0;
@@ -74,10 +74,13 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         _icecream = default;
         _previewImage.gameObject.SetActive(false);
         _iceImage.gameObject.SetActive(false);
-        if (_pLastTopping is not null)
+        print( _toppings.Count);
+        if (_toppings.Count != 0)
         {
-            Destroy(_pLastTopping);
-            _pLastTopping = null;
+            foreach (var a in _toppings) {
+                Destroy(a.gameObject);
+            }
+            _toppings.Clear();
         }
 
         Player.SetCustomer();
@@ -116,7 +119,8 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         _icecream.topping.Add(index + 1);
         NowToppingCount += 1;
         //_toppingImage.sprite = _toppingSprites[index];
-        _pLastTopping = Instantiate(_toppingPrefabs[index], transform);
+        _toppings.Add(Instantiate(_toppingPrefabs[index], transform));
+        print( _toppings.Count);
         
         PlayerDataManager.Instance.UseItemFromType(topping);
         
