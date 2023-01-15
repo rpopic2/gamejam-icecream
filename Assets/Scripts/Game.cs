@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private float _dayTimeLimit;
     private static Game s_instance;
     private static Window s_resultWindow;
+    private static Window s_shopWindow;
 #nullable enable
     private static GameObjectDict<Window>? s_windows;
     public static volatile bool IsDay = true;
@@ -19,6 +20,7 @@ public class Game : MonoBehaviour
         s_instance = this;
         if (s_windows is null) s_windows = new(_canvas);
         s_resultWindow = s_windows?["win_result"] ?? throw new Exception("cannot find result window");
+        s_shopWindow = s_windows?["ShopUI"] ?? throw new Exception("cannot find result window");
         DontDestroyObject.LoadDontDestroy();
     }
     private void Start()
@@ -34,7 +36,7 @@ public class Game : MonoBehaviour
         {
             await Day();
             await ShowResult();
-            //TODO await ReadyUp();
+            await ShopPhase();
         }
     }
     private static async Task Day()
@@ -53,6 +55,13 @@ public class Game : MonoBehaviour
         await AlertBox.Instance.AlertAsync("End day");
         s_resultWindow.Open();
         await s_resultWindow.CloseAsync;
+    }
+    private static async Task ShopPhase()
+    {
+        s_shopWindow.Open();
+        var shop = s_shopWindow.GetComponent<ShopUI>();
+        shop.SetUISlideIn();
+        await s_shopWindow.CloseAsync;
     }
 }
 
