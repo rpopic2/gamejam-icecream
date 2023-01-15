@@ -2,7 +2,7 @@ using UnityEngine.SceneManagement;
 
 public enum SceneName
 {
-    DontDestroy, Game, Night, Start
+    DontDestroy, Game, Start
 }
 public static class SceneLoader
 {

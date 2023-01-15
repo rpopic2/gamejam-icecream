@@ -56,4 +56,9 @@ public class SoundManager : MonoSingleton<SoundManager>
         BGMPlayer.clip = dic_BGM[_bgmName];
         BGMPlayer.Play();
     }
+
+    public void StopBGM()
+    {
+        BGMPlayer.Stop();
+    }
 }
