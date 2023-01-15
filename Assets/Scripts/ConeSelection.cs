@@ -1,4 +1,5 @@
 using UnityEngine;
+using Rpopic.Window;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -20,6 +21,12 @@ public class ConeSelection : MonoBehaviour
         if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Cone && PlayerDataManager.Instance.GetItemNumberFromType(m_ConeType) != 0)
         {
             PreviewIcecream.Instance.SetCone(_index, m_ConeType) ;
+        }
+        else
+        {
+            if (Game.IsDay) {
+                AlertBox.Instance.AlertAsync("아이템이 없습니다!");
+            }
         }
     }
 }
