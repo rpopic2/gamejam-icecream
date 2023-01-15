@@ -1521,7 +1521,7 @@ MonoBehaviour:
   _bgImage: {fileID: 782090093}
   _talkBallonImage: {fileID: 1906164422}
   _canvas: {fileID: 2031218617}
-  _dayTimeLimit: 1
+  _dayTimeLimit: 100
   NowSelectItemType: 0
 --- !u!4 &1660590931
 Transform:
@@ -3083,7 +3083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7736013236147463843, guid: de8dc7267166b4ba99f7326577742a81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -284
+      value: -385
       objectReference: {fileID: 0}
     - target: {fileID: 7736013236147463843, guid: de8dc7267166b4ba99f7326577742a81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
