@@ -73,11 +73,17 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         Player.SetCustomer();
         Player.SetOrder();
+        orig = _previewImage.transform.position;
     }
+    Vector3 orig;
     public void SetCone(int index)
     {
         //TODO implement this thang
         _icecream.cone = index + 1;
+        _previewImage.transform.position = orig;
+        if (index == 1) {
+            _previewImage.transform.Translate(Vector3.up * 50);
+        }
         _previewImage.gameObject.SetActive(true);
         _previewImage.sprite = _coneSprites[index];
     }
