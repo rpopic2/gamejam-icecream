@@ -2898,10 +2898,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c739e3d095a7e3840bac245226611eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HairImage: {fileID: 0}
+  HairImage: {fileID: 4762513524056944324}
   SkinImage: {fileID: 2048425472}
   ClothesImage: {fileID: 740439176}
   FaceImage: {fileID: 644802396}
+--- !u!114 &4762513524056944324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5499637021229964374, guid: cc274307d790345d38465a35c37406a2, type: 3}
+  m_PrefabInstance: {fileID: 4762513524056944321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7736013236059915938
 PrefabInstance:
   m_ObjectHideFlags: 0
