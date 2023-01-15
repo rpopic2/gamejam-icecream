@@ -136,7 +136,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         var (score, talk) = IcecreamJudge.Evaluate(_icecream, Player.Order);
         print($"you get {score} score");
         Dialog.Instance.Print(talk);
-        MoneyBalance.Instance.Balance += score;
+        PlayerDataManager.Instance.PlayerMoney += score;
         dayBalance += score;
         _tcs.SetResult(true);
     }
