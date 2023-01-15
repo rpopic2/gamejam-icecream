@@ -15,6 +15,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField] AudioSource BGMPlayer;
     [SerializeField] AudioSource SFX1Player;
     [SerializeField] AudioSource SFX2Player;
+    [SerializeField] AudioSource SFX3Player;
 
     [Header("Audio Clip List")]
     [SerializeField] List<SFX> list_SFX = new List<SFX>();
@@ -48,6 +49,12 @@ public class SoundManager : MonoSingleton<SoundManager>
             SFX1Player.clip = dic_SFX[_sfxName];
             SFX1Player.Play();
         }
+    }
+
+    public void PlaySFXLoop(string _sfxName)
+    {
+        SFX3Player.clip = dic_SFX[_sfxName];
+        SFX3Player.Play();
     }
 
     public void PlayBGM(string _bgmName)
