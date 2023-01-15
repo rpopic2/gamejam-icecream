@@ -61,6 +61,7 @@ public class Game : MonoBehaviour
         s_shopWindow.Open();
         var shop = s_shopWindow.GetComponent<ShopUI>();
         shop.SetUISlideIn();
+        shop.SetShopSlotList();
         await s_shopWindow.CloseAsync;
     }
 }
