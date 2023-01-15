@@ -2,9 +2,13 @@ using UnityEngine;
 using Rpopic.Window;
 using System.Threading.Tasks;
 using System;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+    [SerializeField] private Sprite _dayBGSprite;
+    [SerializeField] private Sprite _nightBGSprite;
+    [SerializeField] private Image _bgImage;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private float _dayTimeLimit;
     public static Game s_instance;
@@ -44,6 +48,7 @@ public class Game : MonoBehaviour
     }
     private static async Task Day()
     {
+        s_instance._bgImage.sprite = s_instance._dayBGSprite;
         PreviewIcecream.dayBalance = 0;
         IsDay = true;
         DayCounter.Instance.IncrementDay();
@@ -62,6 +67,7 @@ public class Game : MonoBehaviour
     }
     private static async Task ShopPhase()
     {
+        s_instance._bgImage.sprite = s_instance._nightBGSprite;
         s_shopWindow.Open();
         var shop = s_shopWindow.GetComponent<ShopUI>();
         shop.SetUISlideIn();
