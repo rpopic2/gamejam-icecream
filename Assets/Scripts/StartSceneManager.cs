@@ -19,7 +19,8 @@ public class StartSceneManager : MonoBehaviour
         DontDestroyObject.LoadDontDestroy();
         Btn_start.onClick.AddListener(GameStart);
         Btn_Eixt.onClick.AddListener(GameExit);
-        
+
+
     }
 
     private void GameStart()
