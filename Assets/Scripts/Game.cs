@@ -51,12 +51,14 @@ public class Game : MonoBehaviour
         s_instance._bgImage.sprite = s_instance._dayBGSprite;
         PreviewIcecream.dayBalance = 0;
         IsDay = true;
+        SoundManager.Instance.PlayBGM("BGM_DayTime");
         DayCounter.Instance.IncrementDay();
         PreviewIcecream.Instance.StartLoop();
         var _timer = Timer.Instance;
         _timer.SetTimer(s_instance._dayTimeLimit);
         await _timer.StartTimerAsync();
         await PreviewIcecream.Instance.UserSubmit;
+        SoundManager.Instance.PlaySFX("SFX_TimeOver");
         IsDay = false;
     }
     private static async Task ShowResult()
@@ -67,6 +69,7 @@ public class Game : MonoBehaviour
     }
     private static async Task ShopPhase()
     {
+        SoundManager.Instance.PlayBGM("BGM_NightTime");
         s_instance._bgImage.sprite = s_instance._nightBGSprite;
         s_shopWindow.Open();
         var shop = s_shopWindow.GetComponent<ShopUI>();
