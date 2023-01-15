@@ -46,6 +46,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         Instance = this;
         _submitButton.onClick.AddListener(Submit);
         _drums = new(_drumParent);
+        orig = _previewImage.transform.position;
     }
     public async void StartLoop()
     {
@@ -81,7 +82,6 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
         Player.SetCustomer();
         Player.SetOrder();
-        orig = _previewImage.transform.position;
     }
     Vector3 orig;
     public void SetCone(int index, ConeType cone)

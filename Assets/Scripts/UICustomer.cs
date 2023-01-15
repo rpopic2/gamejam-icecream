@@ -23,10 +23,7 @@ public class UICustomer : MonoBehaviour
 
         if (sprites.TryGetValue(customer.Hair.Item2, out var hairList))
         {
-            if (HairImage != null) // 지금은 머리가 없어서...
-            {
-                HairImage.sprite = hairList.FirstOrDefault(e => e.Item1 == customer.Hair.Item1).Item2;
-            }
+            HairImage.sprite = hairList.FirstOrDefault(e => e.Item1 == customer.Hair.Item1).Item2;
         }
 
         if (sprites.TryGetValue(customer.Skin.Item2, out var skinList))
