@@ -19,12 +19,17 @@ public class StartSceneManager : MonoBehaviour
         DontDestroyObject.LoadDontDestroy();
         Btn_start.onClick.AddListener(GameStart);
         Btn_Eixt.onClick.AddListener(GameExit);
+    }
 
-
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM("BGM_Title");
     }
 
     private void GameStart()
     {
+        SoundManager.Instance.StopBGM();
+
         Title.DOFade(1f, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
             video.SetActive(true);
