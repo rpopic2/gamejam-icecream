@@ -40,15 +40,19 @@ public class Game : MonoBehaviour
     }
     private static async void Main()
     {
-        while (true) 
+        while (DayCounter.Instance.Day <= 5) 
         {
             await Day();
             await ShowResult();
             await ShopPhase();
         }
+        GameOverManager.Instance.GameOver(GameOverType.Success);
     }
     private static async Task Day()
     {
+        if(PlayerDataManager.Instance.PlayerMoney <= 0) {
+            GameOverManager.Instance.GameOver(GameOverType.NoMoney);
+        }
         s_instance._bgImage.sprite = s_instance._dayBGSprite;
         s_instance._talkBallonImage.gameObject.SetActive(true);
         PreviewIcecream.dayBalance = 0;

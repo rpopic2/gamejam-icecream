@@ -1431,8 +1431,8 @@ MonoBehaviour:
   _dayBGSprite: {fileID: 21300000, guid: 333cecf307a0045458721cb4ad6348a4, type: 3}
   _nightBGSprite: {fileID: 21300000, guid: f7528fbefe1c1d14691a0f29ac33c96d, type: 3}
   _bgImage: {fileID: 782090093}
-  _talkBallonImage: {fileID: 0}
-  _canvas: {fileID: 1906164421}
+  _talkBallonImage: {fileID: 1906164422}
+  _canvas: {fileID: 2031218617}
   _dayTimeLimit: 1
   NowSelectItemType: 0
 --- !u!4 &1660590931
@@ -1701,11 +1701,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3729017515216240064, guid: 75674edf31ebc4edb8f53410a545e026, type: 3}
   m_PrefabInstance: {fileID: 3729017514844346464}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1906164421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7736013236147463842, guid: de8dc7267166b4ba99f7326577742a81, type: 3}
+--- !u!114 &1906164422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7736013236147463840, guid: de8dc7267166b4ba99f7326577742a81, type: 3}
   m_PrefabInstance: {fileID: 7736013236059915938}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921497123
 GameObject:
   m_ObjectHideFlags: 0
