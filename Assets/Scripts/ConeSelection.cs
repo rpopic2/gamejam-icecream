@@ -6,6 +6,7 @@ public class ConeSelection : MonoBehaviour
 {
     private Button _buttons;
     protected int _index;
+    [SerializeField] private ConeType m_ConeType;
     private void Awake()
     {
         _index = transform.GetSiblingIndex();
@@ -13,6 +14,12 @@ public class ConeSelection : MonoBehaviour
         _buttons.onClick.AddListener(SelectCone);
 
     }
+
     protected virtual void SelectCone()
-        => PreviewIcecream.Instance.SetCone(_index);
+    {
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Cone)
+        {
+            PreviewIcecream.Instance.SetCone(_index, m_ConeType) ;
+        }
+    }
 }

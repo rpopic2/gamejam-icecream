@@ -5,14 +5,16 @@ public class IcecreamScoop : MonoBehaviour
     public static IcecreamScoop Instance;
 
     public int flavorIdx;
+    public FlavorType FlavorType;
 
     private void Awake()
     {
         Instance = this;
     }
-    public void Scoop(int _flavor)
+    public void Scoop(int _flavor, FlavorType flavor)
     {
         flavorIdx = _flavor;
+        FlavorType = flavor;
         gameObject.SetActive(true);
     }
     public void Clear()

@@ -7,13 +7,16 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private GameObject _canvas;
     [SerializeField] private float _dayTimeLimit;
-    private static Game s_instance;
+    public static Game s_instance;
     private static Window s_resultWindow;
     private static Window s_shopWindow;
 #nullable enable
     private static GameObjectDict<Window>? s_windows;
-    public static volatile bool IsDay = true;
+    public static  bool IsDay = true;
     private bool _isGameRunning = false;
+
+    public ItemType NowSelectItemType = ItemType.Cone;
+    
     private void Awake()
     {
         if (_isGameRunning) return;
@@ -48,8 +51,8 @@ public class Game : MonoBehaviour
         var _timer = Timer.Instance;
         _timer.SetTimer(s_instance._dayTimeLimit);
         await _timer.StartTimerAsync();
-        IsDay = false;
         await PreviewIcecream.Instance.UserSubmit;
+        IsDay = false;
     }
     private static async Task ShowResult()
     {

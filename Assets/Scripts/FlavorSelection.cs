@@ -9,10 +9,14 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     private const int SCOOP_BAD_AMOUNT = 20;
     [SerializeField] private List<Sprite> _sprites;
     [SerializeField] private Image _image;
+    [SerializeField] private FlavorType m_flavorType;
 #nullable enable
     private int _max = 100;//TODO hard coded value
     private int _current;
     private int _index;
+
+    private bool m_IsSkillCheck = false;
+    
     private void Awake()
     {
         _index = transform.GetSiblingIndex();
@@ -29,17 +33,26 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void OnPointerClick(PointerEventData eventData) { }
     public void OnPointerDown(PointerEventData eventData)
     {
-        SkillCheck.Instance.StartSkillCheck();
-        SkillCheck.Instance.SnapPosition(transform);
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor && !m_IsSkillCheck)
+        {
+            SkillCheck.Instance.StartSkillCheck();
+            SkillCheck.Instance.SnapPosition(transform);
+            m_IsSkillCheck = true;
+        }
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        SkillCheck.Instance.StopSkillCheck();
-        IcecreamScoop.Instance.Scoop(_index);
-        _current -= SCOOP_PERFECT_AMOUNT;
-        RefreshSprite();
-        foreach(var v in PreviewIcecream._drums) {
-            v.AllowClick(false);
+        if (m_IsSkillCheck)
+        {
+            SkillCheck.Instance.StopSkillCheck();
+            IcecreamScoop.Instance.Scoop(_index, m_flavorType);
+            _current -= SCOOP_PERFECT_AMOUNT;
+            RefreshSprite();
+            foreach(var v in PreviewIcecream._drums) {
+                v.AllowClick(false);
+            }
+
+            m_IsSkillCheck = false;
         }
     }
     private void RefreshSprite()

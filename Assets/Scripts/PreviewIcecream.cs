@@ -77,7 +77,7 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         orig = _previewImage.transform.position;
     }
     Vector3 orig;
-    public void SetCone(int index)
+    public void SetCone(int index, ConeType cone)
     {
         //TODO implement this thang
         _icecream.cone = index + 1;
@@ -87,8 +87,11 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
         }
         _previewImage.gameObject.SetActive(true);
         _previewImage.sprite = _coneSprites[index];
+        
+        Game.s_instance.NowSelectItemType = ItemType.Flavor;
+        PlayerDataManager.Instance.UseItemFromType(cone);
     }
-    public void SetFlavor(int index)
+    public void SetFlavor(int index, FlavorType flavor)
     {
         _icecream.flavor = index + 1;
         _iceImage.gameObject.SetActive(true);
@@ -96,13 +99,19 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
             _iceImage.sprite = _iceCrapeSprites[index];
         }
         else _iceImage.sprite = _iceSprites[index];
+        
+        Game.s_instance.NowSelectItemType = ItemType.Topping;
+        PlayerDataManager.Instance.UseItemFromType(flavor);
     }
-    public void SetTopping(int index)
+    public void SetTopping(int index, ToppingType topping)
     {
         //TODO implement this
         _icecream.topping.Add(index + 1);
         //_toppingImage.sprite = _toppingSprites[index];
         _pLastTopping = Instantiate(_toppingPrefabs[index], transform);
+        
+        Game.s_instance.NowSelectItemType = ItemType.Cone;
+        PlayerDataManager.Instance.UseItemFromType(topping);
     }
     public void Submit()
     {
@@ -116,8 +125,12 @@ public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        IcecreamScoop.Instance.Clear();
-        SetFlavor(IcecreamScoop.Instance.flavorIdx);
+        if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Flavor)
+        {
+            IcecreamScoop.Instance.Clear();
+            SetFlavor(IcecreamScoop.Instance.flavorIdx, IcecreamScoop.Instance.FlavorType);
+        }
+        
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
