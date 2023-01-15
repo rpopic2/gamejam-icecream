@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     [SerializeField] private Sprite _dayBGSprite;
     [SerializeField] private Sprite _nightBGSprite;
     [SerializeField] private Image _bgImage;
+    [SerializeField] private Image _talkBallonImage;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private float _dayTimeLimit;
     public static Game s_instance;
@@ -49,6 +50,7 @@ public class Game : MonoBehaviour
     private static async Task Day()
     {
         s_instance._bgImage.sprite = s_instance._dayBGSprite;
+        s_instance._talkBallonImage.gameObject.SetActive(true);
         PreviewIcecream.dayBalance = 0;
         IsDay = true;
         DayCounter.Instance.IncrementDay();
@@ -67,6 +69,7 @@ public class Game : MonoBehaviour
     }
     private static async Task ShopPhase()
     {
+        s_instance._talkBallonImage.gameObject.SetActive(false);
         s_instance._bgImage.sprite = s_instance._nightBGSprite;
         s_shopWindow.Open();
         var shop = s_shopWindow.GetComponent<ShopUI>();
