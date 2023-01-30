@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerDataManager : MonoSingleton<PlayerDataManager>
 {
@@ -13,7 +11,18 @@ public class PlayerDataManager : MonoSingleton<PlayerDataManager>
     [SerializeField] private List<ConeType> m_StartingConeList;
     [SerializeField] private List<FlavorType> m_StartingFlavorList;
     [SerializeField] private List<ToppingType> m_StartingToppingList;
-    public int PlayerMoney { get; set; }
+    private int _playerMoney;
+#nullable enable
+    public Action<int>? OnPlayerMoneyChanged;
+    public int PlayerMoney
+    {
+        get => _playerMoney;
+        set
+        {
+            _playerMoney = value;
+            OnPlayerMoneyChanged?.Invoke(value);
+        }
+    }
     public int PlayerHonor { get; set; } = 0;
 
     public List<ConeInventory> ConeInvenList = new List<ConeInventory>();
