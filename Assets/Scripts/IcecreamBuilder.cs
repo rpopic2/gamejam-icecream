@@ -17,14 +17,14 @@ namespace Icecream
     }
 }
 
-public class PreviewIcecream : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class IcecreamBuilder : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private List<Sprite> _coneSprites;
     [SerializeField] private List<Sprite> _iceSprites;
     [SerializeField] private List<Sprite> _iceCrapeSprites;
     [SerializeField] private List<Sprite> _toppingSprites;
     [SerializeField] private List<Transform> _toppingPrefabs;
-    public static PreviewIcecream Instance;
+    public static IcecreamBuilder Instance;
     [SerializeField] Image _previewImage;
     [SerializeField] Image _iceImage;
     [SerializeField] Image _toppingImage;

@@ -56,7 +56,7 @@ public class FlavorSelection : MonoBehaviour, IPointerClickHandler, IPointerUpHa
             IcecreamScoop.Instance.Scoop(_index, m_flavorType);
             _current -= SCOOP_PERFECT_AMOUNT;
             RefreshSprite();
-            foreach(var v in PreviewIcecream._drums) {
+            foreach(var v in IcecreamBuilder._drums) {
                 v.AllowClick(false);
             }
 

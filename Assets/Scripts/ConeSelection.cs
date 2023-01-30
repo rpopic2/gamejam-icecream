@@ -20,7 +20,7 @@ public class ConeSelection : MonoBehaviour
     {
         if (Game.IsDay && Game.s_instance.NowSelectItemType == ItemType.Cone && PlayerDataManager.Instance.GetItemNumberFromType(m_ConeType) != 0)
         {
-            PreviewIcecream.Instance.SetCone(_index, m_ConeType) ;
+            IcecreamBuilder.Instance.SetCone(_index, m_ConeType) ;
         }
         else
         {

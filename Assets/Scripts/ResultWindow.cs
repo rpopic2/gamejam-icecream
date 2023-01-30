@@ -20,7 +20,7 @@ public class ResultWindow : Window
             sold.Init("Chocolate Icecream", 20);
         }
         onOpen += OnOpen;
-        _sumText.text = PreviewIcecream.dayBalance.ToString();
+        _sumText.text = IcecreamBuilder.dayBalance.ToString();
     }
     void OnOpen() 
     {

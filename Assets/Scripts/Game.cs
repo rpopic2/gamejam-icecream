@@ -56,15 +56,15 @@ public class Game : MonoBehaviour
         }
         s_instance._bgImage.sprite = s_instance._dayBGSprite;
         s_instance._talkBallonImage.gameObject.SetActive(true);
-        PreviewIcecream.dayBalance = 0;
+        IcecreamBuilder.dayBalance = 0;
         IsDay = true;
         SoundManager.Instance.PlayBGM("BGM_DayTime");
         DayCounter.Instance.IncrementDay();
-        PreviewIcecream.Instance.StartLoop();
+        IcecreamBuilder.Instance.StartLoop();
         var _timer = Timer.Instance;
         _timer.SetTimer(s_instance._dayTimeLimit);
         await _timer.StartTimerAsync();
-        await PreviewIcecream.Instance.UserSubmit;
+        await IcecreamBuilder.Instance.UserSubmit;
         SoundManager.Instance.PlaySFX("SFX_TimeOver");
         IsDay = false;
     }
